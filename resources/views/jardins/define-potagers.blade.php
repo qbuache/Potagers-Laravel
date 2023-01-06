@@ -8,7 +8,7 @@
             @csrf
             <div class="d-flex justify-content-between">
                 <div
-                    class="position-relative h-100"
+                    class="sticky h-100"
                     id="imageWrapper"
                 >
                     <img
