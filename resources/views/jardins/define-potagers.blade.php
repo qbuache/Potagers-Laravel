@@ -45,7 +45,7 @@
     </x-page>
     <x-potagers.template-potager-pill />
     <x-potagers.template-potager-line />
-    <script src="{{ url('js/potagers.app.js') }}"></script>
+    <script src="{{ asset('assets/js/potagers.app.js') }}"></script>
     <script>
         window.onload = () => Potager(
             {{ Js::from(['existingPotagers' => $jardin->potagers, 'creating' => true, 'increment' => true]) }}

@@ -52,5 +52,5 @@
 </div>
 
 @once
-    <script src="{{ url('js/modal-confirm.js') }}"></script>
+    <script src="{{ asset('assets/js/modal-confirm.js') }}"></script>
 @endonce

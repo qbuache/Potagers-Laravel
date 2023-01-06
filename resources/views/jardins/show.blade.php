@@ -73,7 +73,7 @@
         Voulez-vous vraiment supprimer ce jardin ?
     </x-modal-confirm>
     <x-potagers.template-potager-pill />
-    <script src="{{ url('js/potagers.app.js') }}"></script>
+    <script src="{{ asset('assets/js/potagers.app.js') }}"></script>
     <script>
         window.onload = () => Potager(
             {{ Js::from(['existingPotagers' => $jardin->potagers, 'url' => url('potagers')]) }}

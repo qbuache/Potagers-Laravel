@@ -50,7 +50,7 @@
         Voulez-vous vraiment supprimer ce potager ?
     </x-modal-confirm>
     <x-potagers.template-potager-pill />
-    <script src="{{ url('js/potagers.app.js') }}"></script>
+    <script src="{{ asset('assets/js/potagers.app.js') }}"></script>
     <script>
         window.onload = () => Potager({{ Js::from(['existingPotagers' => [$potager]]) }}).init()
     </script>

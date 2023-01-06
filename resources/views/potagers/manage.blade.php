@@ -64,7 +64,7 @@
         </x-page>
     </div>
     <x-potagers.template-potager-pill />
-    <script src="{{ url('js/potagers.app.js') }}"></script>
+    <script src="{{ asset('assets/js/potagers.app.js') }}"></script>
     <script>
         window.onload = () => Potager({{ Js::from(['existingPotagers' => [$potager], 'editing' => true]) }}).init()
     </script>

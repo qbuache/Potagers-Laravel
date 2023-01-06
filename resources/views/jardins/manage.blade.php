@@ -40,7 +40,7 @@
         </x-page>
     </div>
     <x-jardins.template-jardin-pill />
-    <script src="{{ url('js/jardins.app.js') }}"></script>
+    <script src="{{ asset('assets/js/jardins.app.js') }}"></script>
     <script>
         window.onload = () => Jardin({{ Js::from(['existingJardins' => $jardins, 'creating' => true]) }}).init()
     </script>
