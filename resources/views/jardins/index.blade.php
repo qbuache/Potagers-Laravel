@@ -27,15 +27,17 @@
             <div class="col-lg-6 mt-3 mt-lg-0">
                 <h5 class="text-custom">Jardins</h5>
                 <div class="list-group">
-                    @foreach ($jardins as $jardin)
+                    @forelse($jardins as $jardin)
                         <a
                             class="list-group-item list-group-item-action jardin__hover"
-                            data-name="{{ str_replace(' ', '_', $jardin->name) }}"
+                            data-name="{{ Str::slug($jardin->name, '_') }}"
                             href="{{ url("jardins/{$jardin->id}") }}"
                         >
                             {{ $jardin->name }}
                         </a>
-                    @endforeach
+                    @empty
+                        <x-alert>Pas de jardins</x-alert>
+                    @endforelse
                 </div>
             </div>
     </x-page>
