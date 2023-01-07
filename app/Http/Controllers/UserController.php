@@ -19,19 +19,12 @@ class UserController extends Controller {
 
     public function show(User $user) {
         return view("users.show", [
-            "user" => $user->load(["potagers", "roles"]),
+            "user" => $user->load(["potagers.jardin", "roles"]),
         ]);
     }
 
-
     public function create() {
-        //
-    }
-
-    public function store(UserRequest $request) {
-        $posted = $request->validated();
-        $user = User::create($posted);
-        return Redirect::route("users.show", $user)->with("success", "created");
+        return view("users.manage");
     }
 
     public function edit(User $user) {
@@ -40,22 +33,27 @@ class UserController extends Controller {
         ]);
     }
 
-    public function update(UserRequest $request, User $user) {
-        $posted = $request->validated();
-        $user->update($posted);
-        return Redirect::route("users.show", $user)->with("success", "updated");
-    }
-
-    public function destroy(User $user) {
-        $user->delete();
-        return Redirect::route("users.index")->with("success", "deleted");
-    }
-
     public function permissions(User $user) {
         return view("users.permissions", [
             "user" => $user->load(["roles"]),
             "roles" => Role::all(),
         ]);
+    }
+
+    // POST
+
+    public function store(UserRequest $request) {
+        $posted = $request->validated();
+        $user = User::create($posted);
+        return Redirect::route("users.show", $user)->with("success", "created");
+    }
+
+    // PATCH
+
+    public function update(UserRequest $request, User $user) {
+        $posted = $request->validated();
+        $user->update($posted);
+        return Redirect::route("users.show", $user)->with("success", "updated");
     }
 
     public function update_permissions(UserPermissionRequest $request, User $user) {
@@ -83,5 +81,12 @@ class UserController extends Controller {
         }
 
         return Redirect::route("users.show", $user)->with("success", "updated");
+    }
+
+    // DELETE
+
+    public function destroy(User $user) {
+        $user->delete();
+        return Redirect::route("users.index")->with("success", "deleted");
     }
 }
