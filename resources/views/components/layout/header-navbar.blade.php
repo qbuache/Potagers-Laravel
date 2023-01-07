@@ -30,7 +30,7 @@
                 <div class="p-2 bg-white rounded d-flex gap-2 align-items-center">
                     <x-logo height="60px"
                         logo="logo3" />
-                    <h6 class="m-0 text-custom fw-bold">Potagers</h6>
+                    <h6 class="m-0 text-custom fw-bold">{{ config("app.name") }}</h6>
                 </div>
             </a>
         </div>

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-page noHeader>
-        <h4 class="mb-3">{{ config('myConfig.appName') }}</h4>
+        <h4 class="mb-3">{{ config('app.name') }}</h4>
         <ul class="m-0">
             <li>
                 © <a href="{{ config('myConfig.appOwnerWebsite') }}"
