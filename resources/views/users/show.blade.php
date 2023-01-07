@@ -16,7 +16,7 @@
                     fa="pencil-alt"
                 >Modifier</x-link>
             @endcan
-            @can(Permissions::SET_PERMISSIONS)
+            @can(Permissions::GIVE_PERMISSIONS)
                 <x-link
                     href="users/{{ $user->id }}/permissions"
                     fa="lock"

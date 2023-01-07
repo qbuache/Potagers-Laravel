@@ -20,7 +20,7 @@ class Permissions {
     public const CREATE_USERS    = "create.users";
     public const EDIT_USERS      = "edit.users";
     public const DELETE_USERS    = "delete.users";
-    public const SET_PERMISSIONS = "set.permissions";
+    public const GIVE_PERMISSIONS = "give.permissions";
 
     public static function getRoles() {
         return [
@@ -45,7 +45,7 @@ class Permissions {
             static::CREATE_USERS,
             static::EDIT_USERS,
             static::DELETE_USERS,
-            static::SET_PERMISSIONS,
+            static::GIVE_PERMISSIONS,
         ];
     }
 }

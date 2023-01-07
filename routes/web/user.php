@@ -28,7 +28,7 @@ Route::get("/{user}/edit", [UserController::class, "edit"])
 
 Route::get("/{user}/permissions", [UserController::class, "permissions"])
     ->name("users.permissions")
-    ->can(Permissions::SET_PERMISSIONS, "user")
+    ->can(Permissions::GIVE_PERMISSIONS, "user")
     ->whereNumber("user")
     ->breadcrumb("Permissions de la personne", "users.show");
 
@@ -43,7 +43,7 @@ Route::patch("/{user}", [UserController::class, "update"])
 
 Route::patch("/{user}/permissions", [UserController::class, "update_permissions"])
     ->name("users.update_permissions")
-    ->can(Permissions::SET_PERMISSIONS, "user")
+    ->can(Permissions::GIVE_PERMISSIONS, "user")
     ->whereNumber("user");
 
 Route::delete("/{user}", [UserController::class, "destroy"])
