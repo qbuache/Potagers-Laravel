@@ -14,9 +14,13 @@ class CreatePotagersTable extends Migration {
         Schema::create('potagers', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('jardin_id');
+            $table->unsignedBigInteger('user_id')->index('user_id')->nullable();
+            $table->unsignedBigInteger('attributed_by_id')->index('attributed_by_id')->nullable();
             $table->string('name', 50);
             $table->string('coordinates', 30);
             $table->integer('size');
+            $table->integer('status')->default('ok');
+            $table->dateTime('attributed_at')->nullable();
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->nullable()->useCurrentOnUpdate();
         });
