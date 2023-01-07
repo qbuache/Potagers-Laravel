@@ -27,17 +27,11 @@ class User extends Authenticatable {
         "email_verified_at" => "datetime",
     ];
 
-    protected static function booted() {
-        static::deleting(function ($user) {
-            UserPotager::where(["user_id" => $user->id])->delete();
-        });
-    }
-
     public function setEmailAttribute($value) {
         $this->attributes["email"] = strtolower($value);
     }
 
     public function potagers() {
-        return $this->belongsToMany(Potager::class, "user_potagers")->withPivot(["assigned_by_id", "created_at"]);
+        return $this->hasMany(Potager::class);
     }
 }

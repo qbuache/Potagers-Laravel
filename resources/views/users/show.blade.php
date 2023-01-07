@@ -38,9 +38,12 @@
             <div class="list-group">
                 @forelse ($user->potagers as $potager)
                     <a
-                        class="list-group-item list-group-item-action"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                         href="{{ url("potagers/{$potager->id}") }}"
-                    >{{ $potager->name }}</a>
+                    >
+                        <span>{{ $potager->name }}</span>
+                        <small class="text-muted">{{ $potager->jardin->name }}</small>
+                    </a>
                 @empty
                     <x-alert>Pas de potager</x-alert>
                 @endforelse

@@ -26,6 +26,12 @@ Route::get("/{potager}/edit", [PotagerController::class, "edit"])
     ->whereNumber("potager")
     ->breadcrumb("Modification", "potagers.show");
 
+Route::get("/{potager}/jardinier", [PotagerController::class, "jardinier"])
+    ->name("potagers.jardinier")
+    ->can(Permissions::GIVE_POTAGERS, "potager")
+    ->whereNumber("potager")
+    ->breadcrumb("Jardinier", "potagers.show");
+
 Route::post("/", [PotagerController::class, "store"])
     ->name("potagers.store")
     ->can(Permissions::CREATE_POTAGERS);
@@ -33,6 +39,11 @@ Route::post("/", [PotagerController::class, "store"])
 Route::patch("/{potager}", [PotagerController::class, "update"])
     ->name("potagers.update")
     ->can(Permissions::EDIT_POTAGERS, "potager")
+    ->whereNumber("potager");
+
+Route::patch("/{potager}/jardinier", [PotagerController::class, "update_jardinier"])
+    ->name("potagers.update_jardinier")
+    ->can(Permissions::GIVE_POTAGERS, "potager")
     ->whereNumber("potager");
 
 Route::delete("/{potager}", [PotagerController::class, "destroy"])

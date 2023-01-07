@@ -15,6 +15,12 @@
                     fa="pencil-alt"
                 >Modifier</x-link>
             @endcan
+            @can(Permissions::GIVE_POTAGERS)
+                <x-link
+                    href="potagers/{{ $potager->id }}/jardinier"
+                    fa="user"
+                >Jardinier</x-link>
+            @endcan
         </x-btn-group>
         <div class="row card-line">
             <div class="col-lg-4">
@@ -26,6 +32,23 @@
                 <x-card-line name="size">{{ $potager->size }}m<sup>2</sup></x-card-line>
             </div>
         </div>
+        @if (!empty($potager->jardinier))
+            <div class="row card-line">
+                <div class="col-lg-4">
+                    <x-card-line name="jardinier">
+                        <a href="{{ url("users/{$potager->jardinier->id}") }}">{{ $potager->jardinier->name }}</a>
+                    </x-card-line>
+                </div>
+                <div class="col-lg-4">
+                    <x-card-line name="attributed_at">{{ $potager->attributed_at->format('d.m.Y') }}</x-card-line>
+                </div>
+                <div class="col-lg-4">
+                    <x-card-line name="attributed_by">{{ $potager->attributed_by->name }}</x-card-line>
+                </div>
+            </div>
+        @else
+            <x-alert>Ce potager n'est pas attibué</x-alert>
+        @endif
         <div class="row card-line">
             <div class="col-lg-6">
                 <div

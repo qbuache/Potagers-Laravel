@@ -25,6 +25,8 @@ return [
     ],
     "label" => [
         "jardin" => "Jardin",
+        "attributed_at" => "Attribué le",
+        "attributed_by" => "Attribué par",
         "jardin_id" => "Jardin",
         "email" => "Email",
         "password" => "Mot de passe",
