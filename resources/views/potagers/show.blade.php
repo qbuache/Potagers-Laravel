@@ -47,7 +47,7 @@
                 </div>
             </div>
         @else
-            <x-alert>Ce potager n'est pas attibué</x-alert>
+            <x-alert class="my-3">Ce potager n'est pas attibué</x-alert>
         @endif
         <div class="row card-line">
             <div class="col-lg-6">
