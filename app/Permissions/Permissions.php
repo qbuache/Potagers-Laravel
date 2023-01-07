@@ -15,6 +15,7 @@ class Permissions {
     public const READ_POTAGERS   = "read.potagers";
     public const CREATE_POTAGERS = "create.potagers";
     public const EDIT_POTAGERS   = "edit.potagers";
+    public const GIVE_POTAGERS   = "give.potagers";
     public const DELETE_POTAGERS = "delete.potagers";
     public const READ_USERS      = "read.users";
     public const CREATE_USERS    = "create.users";
@@ -41,6 +42,7 @@ class Permissions {
             static::CREATE_POTAGERS,
             static::EDIT_POTAGERS,
             static::DELETE_POTAGERS,
+            static::GIVE_POTAGERS,
             static::READ_USERS,
             static::CREATE_USERS,
             static::EDIT_USERS,
