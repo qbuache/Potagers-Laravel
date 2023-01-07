@@ -17,8 +17,8 @@ class Jardin extends Model {
     public $timestamps = false;
 
     protected static function booted() {
-        static::deleting(function ($potager) {
-            Potager::where(["potager_id" => $potager->id])->delete();
+        static::deleting(function ($jardin) {
+            Potager::where(["jardin_id" => $jardin->id])->delete();
         });
     }
 
