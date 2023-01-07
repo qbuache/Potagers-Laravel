@@ -13,7 +13,6 @@ class SetupSeeder extends Seeder {
     public function run() {
         $this->call([
             RoleAndPermissionSeeder::class,
-            // JardinSeeder::class,
         ]);
     }
 }
