@@ -21,7 +21,10 @@
             @endcan
         </x-btn-group>
         <div class="row card-line">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
+                <x-card-line name="count_potagers">{{ $jardin->potagers->count() }} potagers</x-card-line>
+            </div>
+            <div class="col-lg-3">
                 <x-card-line name="total_size">{{ $jardin->potagers->sum('size') }}m<sup>2</sup></x-card-line>
             </div>
             @if ($jardin->description)
@@ -46,7 +49,7 @@
                 </div>
             </div>
             <div class="col-lg-6 mt-3 mt-lg-0">
-                <h5 class="text-custom">{{ $jardin->potagers->count() }} Potagers</h5>
+                <h5 class="text-custom">Potagers</h5>
                 <div class="list-group">
                     @forelse ($jardin->potagers as $potager)
                         <a

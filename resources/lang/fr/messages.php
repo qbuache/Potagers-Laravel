@@ -25,6 +25,7 @@ return [
     ],
     "label" => [
         "jardin" => "Jardin",
+        "count_potagers" => "Nombre de potagers",
         "attributed_at" => "Attribué le",
         "attributed_by" => "Attribué par",
         "jardin_id" => "Jardin",
