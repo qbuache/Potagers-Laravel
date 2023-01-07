@@ -2,16 +2,19 @@
     $navItems = [
         [
             'href' => 'jardins',
+            'fa' => 'seedling',
             'text' => 'Jardins',
             'permission' => Permissions::READ_JARDINS,
         ],
         [
             'href' => 'users',
+            'fa' => 'users',
             'text' => 'Jardiniers',
             'permission' => Permissions::READ_USERS,
         ],
         [
             'href' => 'potagers',
+            'fa' => 'carrot',
             'text' => 'Potagers',
             'permission' => Permissions::READ_POTAGERS,
         ],
@@ -24,13 +27,14 @@
                 @foreach ($navItems as $navItem)
                     @can($navItem['permission'])
                         <div class="col-lg-4 mx-auto">
-                            <a {{-- :class="{
-                              active: $page.component.startsWith(navItem.component),
-                            }" --}}
-                                class="btn btn-light mt-2 mt-lg-0 w-100 text-start text-lg-center"
-                                href="{{ $navItem['href'] }}">
+                            <x-link
+                                class="mt-2 mt-lg-0 w-100 text-start text-lg-center"
+                                href="{{ $navItem['href'] }}"
+                                fa="{{ $navItem['fa'] }}"
+                                size="nm"
+                            >
                                 {{ $navItem['text'] }}
-                            </a>
+                            </x-link>
                         </div>
                     @endcan
                 @endforeach
