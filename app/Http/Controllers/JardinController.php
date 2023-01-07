@@ -39,6 +39,7 @@ class JardinController extends Controller {
     }
 
     public function edit(Jardin $jardin) {
+        $jardin->coordinates = $jardin->getRawOriginal("coordinates");
         return view("jardins.manage", [
             "jardin" => $jardin,
             "jardins" => Jardin::orderBy("name")->get()

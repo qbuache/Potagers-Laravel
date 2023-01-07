@@ -15,11 +15,7 @@
                     required
                 />
                 <x-form.textarea name="description" />
-                <input
-                    id="coordinates"
-                    name="coordinates"
-                    type="hidden"
-                />
+                <x-form.hidden name="coordinates" />
                 <x-alert class="mt-3 ">Sélectionnez l'emplacement du jardin</x-alert>
                 <div class="d-flex justify-content-center mt-3">
                     <div
