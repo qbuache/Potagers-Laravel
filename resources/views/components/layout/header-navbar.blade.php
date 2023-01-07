@@ -2,16 +2,19 @@
     $navItems = [
         [
             'href' => 'jardins',
+            'fa' => 'seedling',
             'text' => 'Jardins',
             'permission' => Permissions::READ_JARDINS,
         ],
         [
             'href' => 'users',
+            'fa' => 'users',
             'text' => 'Jardiniers',
             'permission' => Permissions::READ_USERS,
         ],
         [
             'href' => 'potagers',
+            'fa' => 'carrot',
             'text' => 'Potagers',
             'permission' => Permissions::READ_POTAGERS,
         ],
@@ -57,12 +60,9 @@
                                 class="dropdown-menu shadow">
                                 @foreach ($navItems as $navItem)
                                     @can($navItem['permission'])
-                                        <a {{-- :class="{
-                              active: $page.component.startsWith(navItem.component),
-                            }" --}}
-                                            class="dropdown-item"
+                                        <a @class(['dropdown-item', 'active' => request()->is("{$navItem['href']}*")])
                                             href="{{ url($navItem['href']) }}">
-                                            {{ $navItem['text'] }}
+                                            <x-fa-span fa="{{ $navItem['fa'] }}">{{ $navItem['text'] }}</x-fa-span>
                                         </a>
                                     @endcan
                                 @endforeach
