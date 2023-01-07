@@ -48,26 +48,16 @@
             <div class="d-block d-lg-flex justify-content-between flex-fill position-relative pt-2 pb-3 py-lg-0">
                 <div class="d-block d-lg-flex flex-grow-1">
                     <ul class="navbar-nav align-items-lg-center">
-                        <li class="nav-item dropdown">
-                            <a aria-expanded="false"
-                                class="nav-link text-white py-1 dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                                id="navbarNavItems"
-                                role="button">
-                                <x-fa-span fa="bars">Menu</x-fa-span>
-                            </a>
-                            <div aria-labelledby="navbarNavItems"
-                                class="dropdown-menu shadow">
-                                @foreach ($navItems as $navItem)
-                                    @can($navItem['permission'])
-                                        <a @class(['dropdown-item', 'active' => request()->is("{$navItem['href']}*")])
-                                            href="{{ url($navItem['href']) }}">
-                                            <x-fa-span fa="{{ $navItem['fa'] }}">{{ $navItem['text'] }}</x-fa-span>
-                                        </a>
-                                    @endcan
-                                @endforeach
-                            </div>
-                        </li>
+                        @foreach ($navItems as $navItem)
+                        @can($navItem['permission'])
+                            <li class="nav-item">
+                                <a @class(['nav-link text-white', 'active' => request()->is("{$navItem['href']}*")])
+                                    href="{{ url($navItem['href']) }}">
+                                    <x-fa-span fa="{{ $navItem['fa'] }}">{{ $navItem['text'] }}</x-fa-span>
+                                </a>
+                            </li>
+                            @endcan
+                        @endforeach
                     </ul>
                 </div>
                 <div class="d-flex flex-column flex-lg-row align-items-lg-center">
