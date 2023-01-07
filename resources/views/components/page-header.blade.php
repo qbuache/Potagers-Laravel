@@ -1,8 +1,8 @@
-@props(['required' => false, 'noHeader' => false])
+@props(['required' => false, 'noHeader' => false, 'title' => null])
 
 @if (!$noHeader)
     @php
-        $breadcrumb =
+        $title ??=
             request()
                 ->route()
                 ->breadcrumbs()
@@ -10,9 +10,9 @@
                 ->last()->title ?? '500';
     @endphp
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="m-0">
-            <span title="{{ $breadcrumb }}">
-                {{ $breadcrumb }}
+        <h4 class="fw-bold text-custom m-0">
+            <span title="{{ $title }}">
+                {{ $title }}
             </span>
             <x-slot name="suppText"></x-slot>
         </h4>
