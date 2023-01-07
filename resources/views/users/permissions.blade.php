@@ -32,15 +32,5 @@
             </form>
         </x-page>
     </div>
-    <script>
-        (() => {
-            const checkboxes = document.querySelectorAll(".form-check-input");
-            checkboxes.forEach(element => element.addEventListener("change", (
-                event) => {
-                const nothingChecked = ![...checkboxes].map(checkbox => checkbox.checked).some(checked =>
-                    checked);
-                checkboxes.forEach(checkbox => checkbox.required = nothingChecked)
-            }))
-        })()
-    </script>
+    <script src="{{ asset('assets/js/users.permissions.js') }}"></script>
 </x-app-layout>
