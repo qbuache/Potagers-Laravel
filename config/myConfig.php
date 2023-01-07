@@ -1,8 +1,6 @@
 <?php
 
 return [
-    "appName"     => "Potagers de la Bérée",
-    "appNameShort" => "Potagers",
     "appOwner"    => "Association des habitant·e·s des Fiches Nord",
     "appOwnerWebsite" => "https://association2.lesfichesnord.ch",
     "appAuthor"   => "Quentin Buache",
