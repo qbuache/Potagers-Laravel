@@ -1,8 +1,10 @@
 @props(['name'])
 
 @error($name)
-    <div {{ $attributes->merge(['id' => $name . 'Error']) }}
-        class="text-danger form-text">
+    <div
+        class="text-danger form-text"
+        {{ $attributes->merge(['id' => $name . 'Error']) }}
+    >
         {{ $message }}
     </div>
 @enderror

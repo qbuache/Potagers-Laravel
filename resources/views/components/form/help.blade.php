@@ -1,8 +1,10 @@
 @props(['name', 'help'])
 
 @if ($help)
-    <div {{ $attributes->merge(['id' => $name . 'Help']) }}
-        class="form-text">
+    <div
+        class="form-text"
+        {{ $attributes->merge(['id' => $name . 'Help']) }}
+    >
         {{ $help }}
     </div>
 @endif

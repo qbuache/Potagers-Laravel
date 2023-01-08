@@ -2,8 +2,10 @@
     <x-page :title="config('app.name')">
         <ul class="m-0">
             <li>
-                © <a href="{{ config('myConfig.appOwnerWebsite') }}"
-                    target="_blank">{{ config('myConfig.appOwner') }}</a>
+                © <a
+                    href="{{ config('myConfig.appOwnerWebsite') }}"
+                    target="_blank"
+                >{{ config('myConfig.appOwner') }}</a>
             </li>
             <li>Auteur: {{ config('myConfig.appAuthor') }}</li>
             <li>

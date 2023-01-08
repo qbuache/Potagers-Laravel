@@ -1,7 +1,9 @@
 @props(['logo' => 'logo1', 'width' => 'auto', 'height' => 'auto'])
 
-<img {{ $attributes->merge([
-    'style' => "width:$width; height:$height",
-]) }}
+<img
+    src="{{ asset("assets/img/$logo.jpeg") }}"
     alt="Logo Fiches Nord"
-    src="{{ asset("assets/img/$logo.jpeg") }}">
+    {{ $attributes->merge([
+        'style' => "width:$width; height:$height",
+    ]) }}
+>

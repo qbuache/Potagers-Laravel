@@ -1,10 +1,14 @@
 @unless($breadcrumbs->isEmpty())
-    <nav aria-label="Breadcrumbs"
-        class="my-2 align-items-center">
+    <nav
+        class="my-2 align-items-center"
+        aria-label="Breadcrumbs"
+    >
         <ol class="breadcrumb align-items-center m-0">
             @foreach ($breadcrumbs as $breadcrumb)
-                <li {{ $ariaCurrent() }}
-                    class="breadcrumb-item {{ $activeClass('active') }}">
+                <li
+                    class="breadcrumb-item {{ $activeClass('active') }}"
+                    {{ $ariaCurrent() }}
+                >
                     @if ($breadcrumb->is_current_page)
                         <span class="text-dark">{{ $breadcrumb->title }}</span>
                     @else

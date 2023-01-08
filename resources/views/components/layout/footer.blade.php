@@ -10,6 +10,8 @@
     </span>
     @endenv
     <span></span>
-    <a class="text-dark"
-        href="{{ url('info') }}">© 2022</a>
+    <a
+        class="text-dark"
+        href="{{ url('info') }}"
+    >© 2022</a>
 </footer>
