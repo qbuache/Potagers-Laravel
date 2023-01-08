@@ -48,6 +48,7 @@ class JardinController extends Controller {
 
     public function update(JardinRequest $request, Jardin $jardin) {
         $posted = $request->validated();
+        $posted["coordinates"] = json_decode($posted["coordinates"]);
         $jardin->update($posted);
         return Redirect::route("jardins.show", $jardin)->with("success", "updated");
     }
