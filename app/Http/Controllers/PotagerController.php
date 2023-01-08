@@ -31,7 +31,6 @@ class PotagerController extends Controller {
     public function edit(Potager $potager) {
         return view("potagers.manage", [
             "potager" => $potager->load(["jardin"]),
-            "jardins" => Jardin::orderBy("name")->get(),
         ]);
     }
 

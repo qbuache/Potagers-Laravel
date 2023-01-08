@@ -11,12 +11,6 @@
                     help="Bla bla bla"
                     required
                 />
-                <x-form.select
-                    name="jardin_id"
-                    :items="$jardins"
-                    :use="['id', 'name']"
-                    required
-                />
                 <x-form.input
                     name="size"
                     type="number"
