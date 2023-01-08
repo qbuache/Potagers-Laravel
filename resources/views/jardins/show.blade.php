@@ -27,29 +27,9 @@
             <div class="col-lg-3">
                 <x-card-line name="total_size">{{ $jardin->potagers->sum('size') }}m<sup>2</sup></x-card-line>
             </div>
-            @if ($jardin->description)
-                <div class="col-lg-4">
-                    <x-card-line name="description">{{ $jardin->description }}</x-card-line>
-                </div>
-            @endif
         </div>
         <div class="row card-line">
             <div class="col-lg-6">
-                <div
-                    class="sticky"
-                    id="imageWrapper"
-                >
-                    <img
-                        class="rounded"
-                        id="image"
-                        src="{{ asset("assets/img/pota{$jardin->id}.jpeg") }}"
-                        alt="Jardin {{ $jardin->name }}"
-                        style="max-width:100%"
-                    >
-                </div>
-            </div>
-            <div class="col-lg-6 mt-3 mt-lg-0">
-                <h5 class="text-custom">Potagers</h5>
                 <div class="list-group">
                     @forelse ($jardin->potagers as $potager)
                         <a
@@ -65,6 +45,20 @@
                     @empty
                         <x-alert>Pas de potagers</x-alert>
                     @endforelse
+                </div>
+            </div>
+            <div class="col-lg-6 mt-3 mt-lg-0">
+                <div
+                    class="sticky"
+                    id="imageWrapper"
+                >
+                    <img
+                        class="rounded"
+                        id="image"
+                        src="{{ asset("assets/img/pota{$jardin->id}.jpeg") }}"
+                        alt="Jardin {{ $jardin->name }}"
+                        style="max-width:100%"
+                    >
                 </div>
             </div>
         </div>

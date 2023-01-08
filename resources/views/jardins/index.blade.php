@@ -11,21 +11,6 @@
         <x-card-line name="total_size">{{ $totalSize }}m<sup>2</sup></x-card-line>
         <div class="row card-line">
             <div class="col-lg-6">
-                <div
-                    class="sticky"
-                    id="imageWrapper"
-                >
-                    <img
-                        class="rounded"
-                        id="image"
-                        src="{{ asset('assets/img/quartier.jpeg') }}"
-                        alt="Quartier"
-                        style="max-width:100%"
-                    >
-                </div>
-            </div>
-            <div class="col-lg-6 mt-3 mt-lg-0">
-                <h5 class="text-custom">Jardins</h5>
                 <div class="list-group">
                     @forelse($jardins as $jardin)
                         <a
@@ -40,6 +25,21 @@
                     @endforelse
                 </div>
             </div>
+            <div class="col-lg-6 mt-3 mt-lg-0">
+                <div
+                    class="sticky"
+                    id="imageWrapper"
+                >
+                    <img
+                        class="rounded"
+                        id="image"
+                        src="{{ asset('assets/img/quartier.jpeg') }}"
+                        alt="Quartier"
+                        style="max-width:100%"
+                    >
+                </div>
+            </div>
+        </div>
     </x-page>
     <x-jardins.template-jardin-pill />
     <script src="{{ asset('assets/js/jardins.app.js') }}"></script>

@@ -17,7 +17,6 @@ class Potager extends Model {
         "attributed_at" => "datetime:d.m.Y",
     ];
 
-
     public function jardin() {
         return $this->belongsTo(Jardin::class);
     }
