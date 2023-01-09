@@ -29,6 +29,11 @@ body {
     transition: color .3s;
 }
 
+#pageLogo h6 {
+    max-width: 90px;
+    white-space: pre-wrap;
+}
+
 #pageMenu {
     min-height: 47px;
 }
