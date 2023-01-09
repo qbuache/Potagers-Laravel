@@ -27,17 +27,32 @@
                 >Définir les potagers</x-link>
             @endcan
         </x-btn-group>
-        <div class="row card-line">
-            <div class="col-lg-3">
-                <x-card-line name="count_potagers">{{ $jardin->potagers->count() }} potagers</x-card-line>
-            </div>
-            <div class="col-lg-3">
-                <x-card-line name="total_size">{{ $jardin->potagers->sum('size') }}m<sup>2</sup></x-card-line>
-            </div>
-        </div>
-        <div class="row card-line">
+        <div class="row">
             <div class="col-lg-6">
-                <div class="list-group">
+                <div class="row card-line">
+                    <div class="col-lg-3">
+                        <x-card-line name="count_potagers">{{ $jardin->potagers->count() }} potagers</x-card-line>
+                    </div>
+                    <div class="col-lg-3">
+                        <x-card-line name="total_size">
+                            <x-sqm>{{ $jardin->potagers->sum('size') }}</x-sqm>
+                        </x-card-line>
+                    </div>
+                </div>
+                <x-card-line name="spread">
+                    <table class="table table-sm table-round table-boxed table-bordered">
+                        <tbody>
+                            <tr>
+                                @foreach ($sizes as $size => $count)
+                                    <td>
+                                        <x-sqm>{{ $count }}x{{ $size }}</x-sqm>
+                                    </td>
+                                @endforeach
+                            </tr>
+                        </tbody>
+                    </table>
+                </x-card-line>
+                <div class="list-group card-line">
                     @forelse ($jardin->potagers as $potager)
                         <a
                             class="list-group-item list-group-item-action potager__hover"

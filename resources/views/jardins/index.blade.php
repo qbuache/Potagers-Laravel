@@ -8,10 +8,25 @@
                 >Créer un jardin</x-link>
             @endcan
         </x-btn-group>
-        <x-card-line name="total_size">{{ $totalSize }}m<sup>2</sup></x-card-line>
-        <div class="row card-line">
+        <div class="row">
             <div class="col-lg-6">
-                <div class="list-group">
+                <x-card-line name="total_size">
+                    <x-sqm>{{ $totalSize }}</x-sqm>
+                </x-card-line>
+                <x-card-line name="spread">
+                    <table class="table table-sm table-round table-boxed table-bordered">
+                        <tbody>
+                            <tr>
+                                @foreach ($sizes as $size)
+                                    <td>
+                                        <x-sqm>{{ $size->count }}x{{ $size->size }}</x-sqm>
+                                    </td>
+                                @endforeach
+                            </tr>
+                        </tbody>
+                    </table>
+                </x-card-line>
+                <div class="list-group card-line">
                     @forelse($jardins as $jardin)
                         <a
                             class="list-group-item list-group-item-action jardin__hover"

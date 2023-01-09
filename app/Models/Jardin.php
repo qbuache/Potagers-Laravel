@@ -25,4 +25,14 @@ class Jardin extends Model {
     public function potagers() {
         return $this->hasMany(Potager::class);
     }
+
+    public function sizes() {
+        return collect($this->potagers->reduce(function ($acc, $potager) {
+            if (empty($acc[$potager->size])) {
+                $acc[$potager->size] =  0;
+            }
+            $acc[$potager->size]++;
+            return $acc;
+        }, []))->sortKeys();
+    }
 }

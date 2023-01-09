@@ -22,8 +22,7 @@
                 >Jardinier</x-link>
             @endcan
         </x-btn-group>
-
-        <div class="row card-line">
+        <div class="row">
             <div class="col-lg-6">
                 <div class="row card-line">
                     <div class="col-lg-6">
@@ -55,7 +54,7 @@
                     <x-alert class="my-3">Ce potager n'est pas attibué</x-alert>
                 @endif
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 mt-3 mt-lg-0">
                 <div
                     class="position-relative"
                     id="imageWrapper"

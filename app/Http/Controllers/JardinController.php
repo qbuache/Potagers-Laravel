@@ -15,13 +15,15 @@ class JardinController extends Controller {
         //Jardin::truncate();
         return view("jardins.index", [
             "jardins" => Jardin::orderBy("name")->get(),
-            "totalSize" => Potager::sum("size")
+            "totalSize" => Potager::sum("size"),
+            "sizes" => Potager::select(["size"])->selectRaw("COUNT(*) as count")->orderBy("size")->groupBy("size")->get(),
         ]);
     }
 
     public function show(Jardin $jardin) {
         return view("jardins.show", [
-            "jardin" => $jardin->load(["potagers"])
+            "jardin" => $jardin->load(["potagers"]),
+            "sizes" => $jardin->sizes(),
         ]);
     }
 

@@ -24,6 +24,7 @@ return [
         "jardinier" => "La personne peut voir les potagers et leurs statuts",
     ],
     "label" => [
+        "spread" => "Répartition",
         "jardin" => "Jardin",
         "count_potagers" => "Nombre de potagers",
         "attributed_at" => "Attribué le",
