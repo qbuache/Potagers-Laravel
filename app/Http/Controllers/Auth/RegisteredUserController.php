@@ -45,12 +45,6 @@ class RegisteredUserController extends Controller {
 
         event(new Registered($user));
 
-        if ($user->id === 1) {
-            $user->assignRole(Permissions::ADMIN);
-        } else {
-            $user->assignRole(Permissions::JARDINIER);
-        }
-
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);

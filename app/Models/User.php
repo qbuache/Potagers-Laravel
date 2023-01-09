@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Permissions\Permissions;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,9 +24,20 @@ class User extends Authenticatable {
         "remember_token",
     ];
 
+
     protected $casts = [
         "email_verified_at" => "datetime",
     ];
+
+    protected static function booted() {
+        static::created(function ($user) {
+            if ($user->id === 1) {
+                $user->assignRole(Permissions::ADMIN);
+            } else {
+                $user->assignRole(Permissions::JARDINIER);
+            }
+        });
+    }
 
     public function setEmailAttribute($value) {
         $this->attributes["email"] = strtolower($value);
