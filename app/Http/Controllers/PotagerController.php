@@ -45,7 +45,6 @@ class PotagerController extends Controller {
         //
     }
 
-
     public function update(PotagerRequest $request, Potager $potager) {
         $posted = $request->validated();
         $posted["coordinates"] = json_decode($posted["coordinates"]);

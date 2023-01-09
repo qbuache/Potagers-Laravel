@@ -29,7 +29,10 @@
         ]) }}
     >
         @foreach ($items as $item)
-            <option value="{{ $item[$use[0]] }}">{{ $item[$use[1]] }}</option>
+            <option
+                value="{{ $item[$use[0]] }}"
+                {{ old($name, $element[$name] ?? null) == $item[$use[0]] ? 'selected' : '' }}
+            >{{ $item[$use[1]] }}</option>
         @endforeach
     </select>
 </x-form.field>
