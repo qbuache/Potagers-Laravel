@@ -25,17 +25,29 @@
 
         <div class="row card-line">
             <div class="col-lg-6">
-                <x-card-line name="jardin">
-                    <a href="{{ url("jardins/{$potager->jardin->id}") }}">{{ $potager->jardin->name }}</a>
-                </x-card-line>
-                <x-card-line name="size">{{ $potager->size }}m<sup>2</sup></x-card-line>
+                <div class="row card-line">
+                    <div class="col-lg-6">
+                        <x-card-line name="size">{{ $potager->size }}m<sup>2</sup></x-card-line>
+                    </div>
+                    <div class="col-lg-6">
+                        <x-card-line name="jardin">
+                            <a href="{{ url("jardins/{$potager->jardin->id}") }}">{{ $potager->jardin->name }}</a>
+                        </x-card-line>
+                    </div>
+                </div>
                 @if (!empty($potager->jardinier))
-                    <x-card-line name="jardinier">
-                        <a href="{{ url("users/{$potager->jardinier->id}") }}">{{ $potager->jardinier->name }}</a>
-                    </x-card-line>
-                    <x-card-line name="attributed_at">{{ $potager->attributed_at->format('d.m.Y') }}
-                    </x-card-line>
-                    <x-card-line name="attributed_by">{{ $potager->attributed_by->name }}</x-card-line>
+                    <div class="row card-line">
+                        <div class="col-lg-6">
+                            <x-card-line name="jardinier">
+                                <a
+                                    href="{{ url("users/{$potager->jardinier->id}") }}">{{ $potager->jardinier->name }}</a>
+                            </x-card-line>
+                        </div>
+                        <div class="col-lg-6">
+                            <x-card-line name="attributed_by">{{ $potager->attributed_by->name }} le
+                                {{ $potager->attributed_at->format('d.m.Y') }}</x-card-line>
+                        </div>
+                    </div>
                 @else
                     <x-alert class="my-3">Ce potager n'est pas attibué</x-alert>
                 @endif
