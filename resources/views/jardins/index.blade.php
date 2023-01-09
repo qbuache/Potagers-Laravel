@@ -10,43 +10,45 @@
         </x-btn-group>
         <div class="row">
             <div class="col-lg-6">
-                <div class="row card-line">
-                    <div class="col-lg-6">
-                        <x-card-line name="count_potagers">{{ $countPotagers }} potagers</x-card-line>
+                @if ($jardins->isNotEmpty())
+                    <div class="row card-line">
+                        <div class="col-lg-6">
+                            <x-card-line name="count_potagers">{{ $countPotagers }} potagers</x-card-line>
+                        </div>
+                        <div class="col-lg-6">
+                            <x-card-line name="total_size">
+                                <x-sqm>{{ $totalSize }}</x-sqm>
+                            </x-card-line>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <x-card-line name="total_size">
-                            <x-sqm>{{ $totalSize }}</x-sqm>
-                        </x-card-line>
+                    <x-card-line name="spread">
+                        <table class="table table-sm table-round table-boxed table-bordered">
+                            <tbody>
+                                <tr>
+                                    @foreach ($potagersSizes as $size => $count)
+                                        <td>
+                                            <x-sqm>{{ $count }} x {{ $size }}</x-sqm>
+                                        </td>
+                                    @endforeach
+                                </tr>
+                            </tbody>
+                        </table>
+                    </x-card-line>
+                    <div class="list-group card-line">
+                        @foreach ($jardins as $jardin)
+                            <a
+                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center jardin__hover"
+                                data-name="{{ Str::slug($jardin->name, '_') }}"
+                                href="{{ url("jardins/{$jardin->id}") }}"
+                            >
+                                <span>{{ $jardin->name }}</span>
+                                <small class="text-muted">{{ $jardin->potagers->count() }} potager</small>
+                            </a>
+                        @endforeach
                     </div>
-                </div>
-                <x-card-line name="spread">
-                    <table class="table table-sm table-round table-boxed table-bordered">
-                        <tbody>
-                            <tr>
-                                @foreach ($potagersSizes as $size => $count)
-                                    <td>
-                                        <x-sqm>{{ $count }} x {{ $size }}</x-sqm>
-                                    </td>
-                                @endforeach
-                            </tr>
-                        </tbody>
-                    </table>
-                </x-card-line>
-                <div class="list-group card-line">
-                    @forelse($jardins as $jardin)
-                        <a
-                            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center jardin__hover"
-                            data-name="{{ Str::slug($jardin->name, '_') }}"
-                            href="{{ url("jardins/{$jardin->id}") }}"
-                        >
-                            <span>{{ $jardin->name }}</span>
-                            <small class="text-muted">{{ $jardin->potagers->count() }} potager</small>
-                        </a>
-                    @empty
-                        <x-alert>Pas de jardins</x-alert>
-                    @endforelse
-                </div>
+                @else
+                    <x-alert>Pas de jardins</x-alert>
+                @endif
             </div>
             <div class="col-lg-6 mt-3 mt-lg-0">
                 <div
