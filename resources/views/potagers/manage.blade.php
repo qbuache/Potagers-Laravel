@@ -14,6 +14,7 @@
                 <x-form.input
                     name="size"
                     type="number"
+                    label="size_square"
                     required
                 />
                 <input

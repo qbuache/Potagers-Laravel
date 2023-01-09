@@ -35,6 +35,7 @@ return [
         "name" => "Nom",
         "description" => "Description",
         "size" => "Taille",
+        "size_square" => "Taille ㎡",
         "roles" => "Rôles",
         "total_size" => "Surface totale",
         "admin" => "Admin",
