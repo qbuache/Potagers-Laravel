@@ -21,24 +21,22 @@
     ];
 @endphp
 <x-app-layout>
-    <div class="col-lg-12">
-        <x-page>
-            <div class="row">
-                @foreach ($navItems as $navItem)
-                    @can($navItem['permission'])
-                        <div class="col-lg-4 mx-auto">
-                            <x-link
-                                class="mt-2 mt-lg-0 w-100 text-start text-lg-center"
-                                href="{{ $navItem['href'] }}"
-                                fa="{{ $navItem['fa'] }}"
-                                size="nm"
-                            >
-                                {{ $navItem['text'] }}
-                            </x-link>
-                        </div>
-                    @endcan
-                @endforeach
-            </div>
-        </x-page>
-    </div>
+    <x-page>
+        <div class="row">
+            @foreach ($navItems as $navItem)
+                @can($navItem['permission'])
+                    <div class="col-lg-4 mx-auto">
+                        <x-link
+                            class="mt-2 mt-lg-0 w-100 text-start text-lg-center"
+                            href="{{ $navItem['href'] }}"
+                            fa="{{ $navItem['fa'] }}"
+                            size="nm"
+                        >
+                            {{ $navItem['text'] }}
+                        </x-link>
+                    </div>
+                @endcan
+            @endforeach
+        </div>
+    </x-page>
 </x-app-layout>
