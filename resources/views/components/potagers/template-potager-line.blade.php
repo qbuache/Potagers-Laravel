@@ -16,7 +16,7 @@
         </div>
         <div>
             <label class="text-muted">
-                <span>Taille m<sup>2</sup></span>
+                <x-sqm>Taille&nbsp;</x-sqm>
                 <input
                     class="potager__size form-control form-control-sm"
                     name="sizes[]"

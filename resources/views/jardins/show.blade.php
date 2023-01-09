@@ -46,7 +46,9 @@
                         >
                             <div class="d-flex justify-content-between align-items-center">
                                 <span>{{ $potager->name }}</span>
-                                <small class="text-muted">{{ $potager->size }}m<sup>2</sup></small>
+                                <small class="text-muted">
+                                    <x-sqm>{{ $potager->size }}</x-sqm>
+                                </small>
                             </div>
                         </a>
                     @empty

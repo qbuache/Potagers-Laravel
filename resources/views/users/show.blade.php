@@ -35,7 +35,10 @@
         </x-card-line>
         <div class="card-line">
             <h5 class="text-custom">Potagers</h5>
-            <div class="list-group">
+            <x-card-line name="total_size">
+                <x-sqm>{{ $user->potagers->sum('size') }}</x-sqm>
+            </x-card-line>
+            <div class="list-group card-line">
                 @forelse ($user->potagers as $potager)
                     <a
                         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"

@@ -27,7 +27,9 @@
             <div class="col-lg-6">
                 <div class="row card-line">
                     <div class="col-lg-6">
-                        <x-card-line name="size">{{ $potager->size }}m<sup>2</sup></x-card-line>
+                        <x-card-line name="size">
+                            <x-sqm>{{ $potager->size }}</x-sqm>
+                        </x-card-line>
                     </div>
                     <div class="col-lg-6">
                         <x-card-line name="jardin">
