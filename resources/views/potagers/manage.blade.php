@@ -1,9 +1,13 @@
+@php
+    $element = $potager ?? null;
+    $route = empty($element) ? route('potagers.store') : route('potagers.update', $element->id);
+@endphp
 <x-app-layout>
     <div class="col-lg-10 mx-auto">
         <x-page>
             <x-form.form
-                :element="$potager ?? null"
-                route="potagers"
+                :element="$element"
+                :route="$route"
             >
                 <x-form.input
                     name="name"
