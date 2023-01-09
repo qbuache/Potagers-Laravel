@@ -86,6 +86,18 @@ Potager = (data) => {
             const pill = imageWrapper.lastElementChild;
             pill.style.left = `${potager.coordinates.x * fixX}px`;
             pill.style.top = `${potager.coordinates.y * fixY}px`;
+
+            if (potager.state != "ok") {
+                const tooltip = imageWrapper.lastElementChild.querySelector(
+                    "[data-bs-toggle='tooltip']"
+                );
+                tooltip.dataset.bsTitle = potager.state_text;
+                new bootstrap.Tooltip(tooltip);
+            } else {
+                imageWrapper.lastElementChild
+                    .querySelector(".potager__state")
+                    .remove();
+            }
         }
     }
 

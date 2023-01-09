@@ -35,7 +35,7 @@
                         </x-card-line>
                     </div>
                 </div>
-                <x-card-line name="state">{{ __("messages.label.state_{$potager->state}") }}</x-card-line>
+                <x-card-line name="state">{{ $potager->state_text }}</x-card-line>
                 @if (!empty($potager->jardinier))
                     <div class="row card-line">
                         <div class="col-lg-6">

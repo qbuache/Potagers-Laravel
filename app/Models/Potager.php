@@ -17,6 +17,8 @@ class Potager extends Model {
         "attributed_at" => "datetime:d.m.Y",
     ];
 
+    protected $appends = ["state_text"];
+
     public function jardin() {
         return $this->belongsTo(Jardin::class);
     }
@@ -27,6 +29,10 @@ class Potager extends Model {
 
     public function attributed_by() {
         return $this->belongsTo(User::class, "attributed_by_id");
+    }
+
+    public function getStateTextAttribute() {
+        return __("messages.label.state_{$this->state}");
     }
 
     public static function states() {
