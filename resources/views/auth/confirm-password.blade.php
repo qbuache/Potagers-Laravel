@@ -1,49 +1,33 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+    <div class="col-lg-6 mx-auto">
+        <x-page noHeader>
+            <x-logo
+                class="mx-auto"
+                logo="logo3"
+                width="300px"
+            />
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-        </div>
+            <h5 class="mt-2 text-center">
+                This is a secure area of the application. Please confirm your password before continuing
+            </h5>
 
-        <!-- Validation Errors -->
-        <x-validation-errors
-            class="mb-4"
-            :errors="$errors"
-        />
+            <x-validation-errors />
 
-        <form
-            method="POST"
-            action="{{ route('password.confirm') }}"
-        >
-            @csrf
-
-            <!-- Password -->
-            <div>
-                <x-label
-                    for="password"
-                    :value="__('Password')"
-                />
-
-                <x-input
-                    class="block mt-1 w-full"
-                    id="password"
+            <form
+                method="POST"
+                action="{{ route('password.confirm') }}"
+            >
+                @csrf
+                <x-form.input
                     name="password"
                     type="password"
-                    required
                     autocomplete="current-password"
+                    required
                 />
-            </div>
-
-            <div class="flex justify-end mt-4">
-                <x-button>
-                    {{ __('Confirm') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
+                <x-form.submit fa="right-to-bracket">
+                    {{ __('messages.label.confirm_password') }}
+                </x-form.submit>
+            </form>
+        </x-page>
+    </div>
 </x-guest-layout>

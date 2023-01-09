@@ -1,33 +1,36 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+    <div class="col-lg-6 mx-auto">
+        <x-page noHeader>
+            <x-logo
+                class="mx-auto"
+                logo="logo3"
+                width="300px"
+            />
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-        </div>
+            <h5 class="mt-2 text-center">
+                Thanks for signing up! Before getting started, could you verify your email address by clicking on the
+                link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.
+            </h5>
 
-        @if (session('status') == 'verification-link-sent')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+            <div class="mb-4 text-sm text-gray-600">
+                {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
             </div>
-        @endif
 
-        <div class="mt-4 flex items-center justify-between">
+            @if (session('status') == 'verification-link-sent')
+                <div class="mt-2 text-center">
+                    {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+                </div>
+            @endif
+
             <form
                 method="POST"
                 action="{{ route('verification.send') }}"
             >
                 @csrf
 
-                <div>
-                    <x-button>
-                        {{ __('Resend Verification Email') }}
-                    </x-button>
-                </div>
+                <x-form.submit fa="right-to-bracket">
+                    {{ __('Resend Verification Email') }}
+                </x-form.submit>
             </form>
 
             <form
@@ -36,13 +39,10 @@
             >
                 @csrf
 
-                <button
-                    class="underline text-sm text-gray-600 hover:text-gray-900"
-                    type="submit"
-                >
-                    {{ __('Log Out') }}
-                </button>
+                <x-form.submit fa="right-to-bracket">
+                    {{ __('messages.label.logout') }}
+                </x-form.submit>
             </form>
-        </div>
+    </div>
     </x-auth-card>
 </x-guest-layout>
