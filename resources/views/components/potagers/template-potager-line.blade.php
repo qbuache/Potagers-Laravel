@@ -5,25 +5,25 @@
     >
         <div>
             <label class="text-muted">
-                <span>Nom</span>
+                <span>{{ __('messages.label.name') }}</span>
                 <input
                     class="potager__name form-control form-control-sm"
                     name="names[]"
                     type="number"
-                    placeholder="Nom"
+                    required
                 >
             </label>
         </div>
         <div>
             <label class="text-muted">
-                <x-sqm>Taille&nbsp;</x-sqm>
+                <x-sqm>{{ __('messages.label.size') }}&nbsp;</x-sqm>
                 <input
                     class="potager__size form-control form-control-sm"
                     name="sizes[]"
                     type="number"
                     value="1"
+                    required
                     min="1"
-                    placeholder="Taille m²"
                 >
             </label>
         </div>
