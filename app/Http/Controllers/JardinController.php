@@ -12,11 +12,19 @@ class JardinController extends Controller {
 
     public function index() {
         //Potager::get()->each(fn ($potager) => $potager->delete());
-        //Jardin::truncate();
+        $jardins = Jardin::orderBy("name")->with([
+            "potagers" => fn ($query) => $query->select(["jardin_id", "size"])->orderBy("size")
+        ])->get();
+
+        $countPotagers = $jardins->map(fn ($jardin) => $jardin->potagers->count())->sum();
+        $totalSize = $jardins->map(fn ($jardin) => $jardin->potagers->sum("size"))->sum();
+        $potagersSizes = $jardins->map(fn ($jardin) => $jardin->potagers)->reduce(fn ($acc, $potagers) => $acc->push(...$potagers), collect([]))->groupBy("size")->map(fn ($size) => $size->count());
+
         return view("jardins.index", [
-            "jardins" => Jardin::orderBy("name")->get(),
-            "totalSize" => Potager::sum("size"),
-            "sizes" => Potager::select(["size"])->selectRaw("COUNT(*) as count")->orderBy("size")->groupBy("size")->get(),
+            "jardins" => $jardins,
+            "countPotagers" => $countPotagers,
+            "totalSize" => $totalSize,
+            "potagersSizes" => $potagersSizes,
         ]);
     }
 
