@@ -6,7 +6,9 @@ use App\Http\Requests\UserPermissionRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Permissions\Permissions;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller {
@@ -44,6 +46,7 @@ class UserController extends Controller {
 
     public function store(UserRequest $request) {
         $posted = $request->validated();
+        $posted["password"] = Hash::make(Str::random(30));
         $user = User::create($posted);
         return Redirect::route("users.show", $user)->with("success", "created");
     }
