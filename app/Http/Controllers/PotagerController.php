@@ -37,7 +37,7 @@ class PotagerController extends Controller {
     public function jardinier(Potager $potager) {
         return view("potagers.jardinier", [
             "potager" => $potager->load(["jardin"]),
-            "users" => User::orderBy("name")->get(),
+            "users" => User::orderBy("name")->get()->prepend(["id" => NULL, "name" => "-- Potager libre --"]),
         ]);
     }
 
