@@ -20,6 +20,7 @@ class PotagerRequest extends FormRequest {
         return [
             "name" => ["required", "max:50", $unique],
             "coordinates" => "required|json|max:30",
+            "state" => "required|string",
             "size" => "required|integer",
         ];
     }

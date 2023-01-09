@@ -31,6 +31,7 @@ class PotagerController extends Controller {
     public function edit(Potager $potager) {
         return view("potagers.manage", [
             "potager" => $potager->load(["jardin"]),
+            "states" => Potager::states()->map(fn ($state) => [$state, __("messages.label.state_{$state}")]),
         ]);
     }
 

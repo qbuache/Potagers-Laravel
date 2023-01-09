@@ -21,6 +21,11 @@
                     label="size_square"
                     required
                 />
+                <x-form.select
+                    name="state"
+                    required
+                    :items="$states"
+                />
                 <input
                     id="coordinates"
                     name="coordinates"

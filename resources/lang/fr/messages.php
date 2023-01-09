@@ -45,5 +45,9 @@ return [
         "forgot_password" => "J'ai oublié mon mot de passe",
         "register" => "S'inscrire",
         "login" => "Se connecter",
+        "state" => "État",
+        "state_ok" => "OK",
+        "state_damaged" => "Endommagé",
+        "state_derelict" => "À l'abandon",
     ]
 ];
