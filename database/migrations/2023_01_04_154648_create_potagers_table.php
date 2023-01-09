@@ -19,7 +19,7 @@ class CreatePotagersTable extends Migration {
             $table->string('name', 50);
             $table->string('coordinates', 30);
             $table->integer('size');
-            $table->integer('status')->default('ok');
+            $table->string('status', 20)->default('ok');
             $table->dateTime('attributed_at')->nullable();
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->nullable()->useCurrentOnUpdate();
