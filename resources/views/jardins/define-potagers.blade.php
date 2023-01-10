@@ -6,20 +6,22 @@
             method="POST"
         >
             @csrf
-            <div class="d-flex justify-content-between">
-                <div
-                    class="sticky h-100"
-                    id="imageWrapper"
-                >
-                    <img
-                        class="rounded "
-                        id="image"
-                        src="{{ asset("assets/img/pota{$jardin->id}.jpeg") }}"
-                        alt="Jardin {{ $jardin->name }}"
-                        style="cursor: crosshair"
+            <div class="row">
+                <div class="col-lg-9">
+                    <div
+                        class="sticky overflow-auto h-100"
+                        id="imageWrapper"
                     >
+                        <img
+                            class="rounded "
+                            id="image"
+                            src="{{ asset("assets/img/pota{$jardin->id}.jpeg") }}"
+                            alt="Jardin {{ $jardin->name }}"
+                            style="cursor: crosshair"
+                        >
+                    </div>
                 </div>
-                <div class="flex-grow-1 ms-3">
+                <div class="col-lg-3">
                     <h5 class="text-custom">Nouveaux potagers</h5>
                     <div class="mb-3">
                         <label
