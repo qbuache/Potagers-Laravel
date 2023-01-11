@@ -1,9 +1,9 @@
 @if ($errors->any())
     <x-alert
         type="warning"
-        {{ $attributes->merge(['class']) }}
+        {{ $attributes->merge() }}
     >
-        <ul class="m-0">
+        <ul @class(['m-0', 'list-unstyled' => $errors->count() > 0])>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
