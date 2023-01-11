@@ -1,8 +1,11 @@
 @props(['fa' => 'save', 'supp' => null])
 
 <div class="d-flex justify-content-between mt-3">
-    {{ $supp }}
-    <span></span>
+    @if (empty($supp))
+        <span></span>
+    @else
+        {{ $supp }}
+    @endif
     <x-button
         type="submit"
         :fa="$fa"
