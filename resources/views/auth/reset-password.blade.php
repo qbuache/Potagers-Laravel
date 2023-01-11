@@ -6,43 +6,36 @@
                 logo="logo3"
                 width="300px"
             />
-
             <h5 class="mt-2 text-center">
-                This is a secure area of the application. Please confirm your password before continuing
+                {{ __('messages.text.confirm_password') }}
             </h5>
-
+            <x-validation-errors class="my-3" />
             <form
                 action="{{ route('password.update') }}"
                 method="POST"
             >
                 @csrf
-
-                <!-- Password Reset Token -->
                 <input
                     name="token"
                     type="hidden"
                     value="{{ $request->route('token') }}"
                 >
-
                 <x-form.input
                     name="email"
                     type="email"
                     autofocus
                     required
                 />
-
                 <x-form.input
                     name="password"
                     type="password"
                     required
                 />
-
                 <x-form.input
                     name="password_confirmation"
                     type="password"
                     required
                 />
-
                 <x-form.submit fa="right-to-bracket">
                     {{ __('messages.label.reset_password') }}
                 </x-form.submit>

@@ -6,13 +6,10 @@
                 logo="logo3"
                 width="300px"
             />
-
             <h5 class="mt-2 text-center">
-                This is a secure area of the application. Please confirm your password before continuing
+                {{ __('messages.text.confirm_password') }}
             </h5>
-
-            <x-validation-errors />
-
+            <x-validation-errors class="my-3" />
             <form
                 method="POST"
                 action="{{ route('password.confirm') }}"
@@ -24,7 +21,7 @@
                     autocomplete="current-password"
                     required
                 />
-                <x-form.submit fa="right-to-bracket">
+                <x-form.submit fa="key">
                     {{ __('messages.label.confirm_password') }}
                 </x-form.submit>
             </form>

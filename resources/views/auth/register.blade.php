@@ -6,15 +6,8 @@
                 logo="logo3"
                 width="300px"
             />
-
-            <h5 class="mt-2 text-center">Création de mon compte</h5>
-
-            <!-- Validation Errors -->
-            <x-validation-errors
-                class="mb-4"
-                :errors="$errors"
-            />
-
+            <h5 class="mt-2 text-center">{{ __('messages.text.account_creation') }}</h5>
+            <x-validation-errors class="mb-3" />
             <form
                 action="{{ route('register') }}"
                 method="POST"
@@ -26,7 +19,6 @@
                     autofocus
                     required
                 />
-
                 <x-form.input
                     name="email"
                     type="email"
@@ -34,34 +26,26 @@
                     autofocus
                     required
                 />
-
                 <x-form.input
                     name="password"
                     type="password"
                     autocomplete="new-password"
                     required
                 />
-
                 <x-form.input
                     name="password_confirmation"
                     type="password"
                     autocomplete="new-password"
                     required
                 />
-
-                <div class="d-flex align-items-center justify-content-between mt-3">
-                    <a
-                        class="underline text-sm text-gray-600 hover:text-gray-900"
-                        href="{{ route('login') }}"
-                    >
-                        J'ai déjà un compte
-                    </a>
-
-                    <x-form.submit fa="right-to-bracket">
-                        S'inscrire
-                    </x-form.submit>
-
-                </div>
+                <x-form.submit fa="right-to-bracket">
+                    <x-slot name="supp">
+                        <x-link href="{{ route('login') }}">
+                            {{ __('messages.label.already_registered') }}
+                        </x-link>
+                    </x-slot>
+                    {{ __('messages.label.register') }}
+                </x-form.submit>
             </form>
         </x-page>
     </div>
