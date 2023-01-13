@@ -5,7 +5,7 @@
         <i {{ $attributes->class(['fa', 'fa-fw' => $fw])->merge([
             'class' => "fa-{$fa}",
         ]) }}>
+        </i>
     @endif
-    </i>
     <span>{{ $slot }}</span>
 </div>
