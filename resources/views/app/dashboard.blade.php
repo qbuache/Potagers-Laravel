@@ -22,21 +22,48 @@
 @endphp
 <x-app-layout>
     <x-page>
-        <div class="row">
-            @foreach ($navItems as $navItem)
-                @can($navItem['permission'])
-                    <div class="col-lg-4 mx-auto">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-4 gap-3">
+                @can(Permissions::READ_JARDINS)
+                    <div class="card card-body h-100">
                         <x-link
-                            class="mt-2 mt-lg-0 w-100 text-start text-lg-center"
-                            href="{{ $navItem['href'] }}"
-                            fa="{{ $navItem['fa'] }}"
+                            class="text-start text-lg-center stretched-link"
+                            href="jardins"
+                            fa="seedling"
                             size="nm"
-                        >
-                            {{ $navItem['text'] }}
-                        </x-link>
+                        >Jardins</x-link>
+                        <div class="mt-3 text-center">
+                            Nombre de jardins : {{ $countJardins }}
+                        </div>
                     </div>
                 @endcan
-            @endforeach
+                @can(Permissions::READ_USERS)
+                    <div class="card card-body h-100">
+                        <x-link
+                            class="text-start text-lg-center stretched-link"
+                            href="users"
+                            fa="users"
+                            size="nm"
+                        >Jardiniers</x-link>
+                        <div class="mt-3 text-center">
+                            Nombre de jardiniers : {{ $countJardiniers }}
+                        </div>
+                    </div>
+                @endcan
+                @can(Permissions::READ_POTAGERS)
+                    <div class="card card-body h-100">
+                        <x-link
+                            class="text-start text-lg-center stretched-link"
+                            href="potagers"
+                            fa="carrot"
+                            size="nm"
+                        >Potagers</x-link>
+                        <div class="mt-3 text-center">
+                            Nombre de potagers : {{ $countPotagers }}
+                        </div>
+                    </div>
+                @endcan
+            </div>
         </div>
     </x-page>
 </x-app-layout>
