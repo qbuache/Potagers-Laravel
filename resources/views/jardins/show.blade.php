@@ -56,13 +56,13 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>{{ $potager->name }}</span>
                                     <small class="text-muted">
-                                        {{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}
+                                        <x-sqm>{{ $potager->size }}</x-sqm>
                                     </small>
                                     <small class="text-muted">
                                         <span @class(['text-warning' => $potager->state != 'ok'])>{{ $potager->state_text }}</span>
                                     </small>
                                     <small class="text-muted">
-                                        <x-sqm>{{ $potager->size }}</x-sqm>
+                                        {{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}
                                     </small>
                                 </div>
                             </a>
