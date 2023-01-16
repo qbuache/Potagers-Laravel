@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Redirect;
 class PotagerController extends Controller {
 
     public function index() {
+        $potagers = Potager::orderBy("name")->with(["jardinier", "jardin"])->get();
         return view("potagers.index", [
-            "potagers" => Potager::orderBy("name")->with(["jardinier", "jardin"])->get()
+            "potagers" => $potagers,
+            "sizes" => $potagers->groupBy("size")->sortKeys()->map(fn ($size) => $size->count()),
         ]);
     }
 
