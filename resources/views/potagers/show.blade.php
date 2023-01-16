@@ -38,18 +38,21 @@
                 </div>
                 <x-card-line name="state">{{ $potager->state_text }}</x-card-line>
                 @if (!empty($potager->jardinier))
-                    <div class="row card-line">
-                        <div class="col-lg-6">
-                            <x-card-line name="jardinier">
-                                <a
-                                    href="{{ url("users/{$potager->jardinier->id}") }}">{{ $potager->jardinier->name }}</a>
-                            </x-card-line>
+                    @can(Permissions::READ_USERS)
+                        <h5 class="text-custom card-line">Attribué</h5>
+                        <div class="row card-line">
+                            <div class="col-lg-6">
+                                <x-card-line name="jardinier">
+                                    <a
+                                        href="{{ url("users/{$potager->jardinier->id}") }}">{{ $potager->jardinier->name }}</a>
+                                </x-card-line>
+                            </div>
+                            <div class="col-lg-6">
+                                <x-card-line name="attributed_by">{{ $potager->attributed_by->name }} le
+                                    {{ $potager->attributed_at->format('d.m.Y') }}</x-card-line>
+                            </div>
                         </div>
-                        <div class="col-lg-6">
-                            <x-card-line name="attributed_by">{{ $potager->attributed_by->name }} le
-                                {{ $potager->attributed_at->format('d.m.Y') }}</x-card-line>
-                        </div>
-                    </div>
+                    @endcan
                 @else
                     <x-alert class="my-3">Ce potager n'est pas attibué</x-alert>
                 @endif
