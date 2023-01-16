@@ -16,7 +16,10 @@ class PotagerController extends Controller {
         $potagers = Potager::orderBy("name")->with(["jardinier", "jardin"])->get();
         return view("potagers.index", [
             "potagers" => $potagers,
-            "sizes" => $potagers->groupBy("size")->sortKeys()->map(fn ($size) => $size->count()),
+            "jardins" => $potagers->map(fn ($potager) => $potager->jardin->only("id", "name"))->unique()->values(),
+            "sizes" => $potagers->pluck("size")->unique()->sort()->values(),
+            "states" => $potagers->pluck("state")->unique()->values(),
+            "statuses" => ["attributed", "open"],
         ]);
     }
 
