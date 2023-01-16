@@ -26,19 +26,19 @@
         const selectedSize = document.querySelector(".size:checked");
         const selectedState = document.querySelector(".state:checked");
         const selectedStatus = document.querySelector(".status:checked");
-        const searchText = searchBox.value.length > 0;
-        const searchJardin = selectedJardin.value.length > 0;
-        const searchSize = selectedSize.value.length > 0;
-        const searchState = selectedState.value.length > 0;
-        const searchStatus = selectedStatus.value.length > 0;
+        const searchingText = searchBox.value.length > 0;
+        const searchingJardin = selectedJardin.value.length > 0;
+        const searchingSize = selectedSize.value.length > 0;
+        const searchingState = selectedState.value.length > 0;
+        const searchingStatus = selectedStatus.value.length > 0;
 
         listItems.forEach((element) => {
             element.classList.remove("d-none");
         });
 
         // prettier-ignore
-        if (searchText || searchJardin || searchSize || searchState || searchStatus) {
-            if (searchText) {
+        if (searchingText || searchingJardin || searchingSize || searchingState || searchingStatus) {
+            if (searchingText) {
                 const search = searchBox.value.trim().toLowerCase();
                 listItems.forEach((element) => {
                     if (!element.innerText.toLowerCase().includes(search)) {
@@ -47,43 +47,26 @@
                 });
             }
 
-            if (searchJardin) {
-                listItems.forEach((element) => {
-                    if (element.dataset.jardin != selectedJardin.value) {
-                        element.classList.add("d-none");
-                    }
-                });
-            }
-
-            if (searchSize) {
-                listItems.forEach((element) => {
-                    if (element.dataset.size != selectedSize.value) {
-                        element.classList.add("d-none");
-                    }
-                });
-            }
-
-            if (searchState) {
-                listItems.forEach((element) => {
-                    if (element.dataset.state != selectedState.value) {
-                        element.classList.add("d-none");
-                    }
-                });
-            }
-
-            if (searchStatus) {
-                listItems.forEach((element) => {
-                    if (element.dataset.status != selectedStatus.value) {
-                        element.classList.add("d-none");
-                    }
-                });
-            }
+            isSearchingWithRadio(searchingJardin, selectedJardin, "jardin");
+            isSearchingWithRadio(searchingSize, selectedSize, "size");
+            isSearchingWithRadio(searchingState, selectedState, "state");
+            isSearchingWithRadio(searchingStatus, selectedStatus, "status");
 
             displayNoResult(
                 document.querySelectorAll(".potager:not(.d-none)").length < 1
             );
         } else {
             displayNoResult(false);
+        }
+    }
+
+    function isSearchingWithRadio(searching, search, searchBy) {
+        if (searching) {
+            listItems.forEach((element) => {
+                if (element.dataset[searchBy] != search.value) {
+                    element.classList.add("d-none");
+                }
+            });
         }
     }
 
