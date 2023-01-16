@@ -88,11 +88,12 @@ Potager = (data) => {
             pill.style.top = `${potager.coordinates.y * fixY}px`;
 
             if (potager.state && potager.state != "ok") {
-                const tooltip = imageWrapper.lastElementChild.querySelector(
-                    "[data-bs-toggle='tooltip']"
-                );
-                tooltip.dataset.bsTitle = potager.state_text;
-                new bootstrap.Tooltip(tooltip);
+                const stateTooltip =
+                    imageWrapper.lastElementChild.querySelector(
+                        ".potager__state[data-bs-toggle='tooltip']"
+                    );
+                stateTooltip.dataset.bsTitle = potager.state_text;
+                new bootstrap.Tooltip(stateTooltip);
             } else {
                 imageWrapper.lastElementChild
                     .querySelector(".potager__state")
