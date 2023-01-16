@@ -53,15 +53,15 @@
                                 data-name="{{ $potager->name }}"
                                 href="{{ url("potagers/{$potager->id}") }}"
                             >
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span>{{ $potager->name }}</span>
-                                    <small class="text-muted">
+                                <div class="row">
+                                    <span class="col-lg-3">{{ $potager->name }}</span>
+                                    <small class="col-lg-3 text-muted text-lg-center">
                                         <x-sqm>{{ $potager->size }}</x-sqm>
                                     </small>
-                                    <small class="text-muted">
+                                    <small class="col-lg-3 text-muted text-lg-center">
                                         <span @class(['text-warning' => $potager->state != 'ok'])>{{ $potager->state_text }}</span>
                                     </small>
-                                    <small class="text-muted">
+                                    <small class="col-lg-3 text-muted text-lg-end">
                                         {{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}
                                     </small>
                                 </div>
