@@ -17,6 +17,12 @@
                         href="{{ url("potagers/{$potager->id}") }}"
                     >
                         <span>{{ $potager->name }}</span>
+                        <small class="text-muted">
+                            <x-sqm>{{ $potager->size }}</x-sqm>
+                        </small>
+                        <small class="text-muted">
+                            {{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}
+                        </small>
                         <small class="text-muted">{{ $potager->jardin->name }}</small>
                     </a>
                 @empty

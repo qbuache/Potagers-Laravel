@@ -14,7 +14,7 @@ class PotagerController extends Controller {
 
     public function index() {
         return view("potagers.index", [
-            "potagers" => Potager::orderBy("name")->with(["jardin"])->get()
+            "potagers" => Potager::orderBy("name")->with(["jardinier", "jardin"])->get()
         ]);
     }
 
