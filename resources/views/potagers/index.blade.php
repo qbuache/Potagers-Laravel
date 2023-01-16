@@ -13,17 +13,18 @@
             <div class="list-group list-group-flush border border-bottom-0 overflow-hidden rounded">
                 @forelse($potagers as $potager)
                     <a
-                        class="list-group-item list-group-item-action d-flex justify-content-between border-bottom align-items-center"
+                        class="list-group-item list-group-item-action border-bottom"
                         href="{{ url("potagers/{$potager->id}") }}"
                     >
-                        <span>{{ $potager->name }}</span>
-                        <small class="text-muted">
-                            <x-sqm>{{ $potager->size }}</x-sqm>
-                        </small>
-                        <small class="text-muted">
-                            {{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}
-                        </small>
-                        <small class="text-muted">{{ $potager->jardin->name }}</small>
+                        <div class="row">
+                            <div class="col-lg-3">{{ $potager->name }}</div>
+                            <small class="col-lg-3 text-lg-center text-muted">
+                                <x-sqm>{{ $potager->size }}</x-sqm>
+                            </small>
+                            <small
+                                class="col-lg-3 text-lg-center text-muted">{{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}</small>
+                            <small class="col-lg-3 text-lg-end text-muted">{{ $potager->jardin->name }}</small>
+                        </div>
                     </a>
                 @empty
                     <x-alert>Il n'y a pas de potager</x-alert>
