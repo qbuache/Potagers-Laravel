@@ -21,8 +21,10 @@ class AppController extends Controller {
     }
 
     public function profil() {
+        /** @var App\Models\ShibbolethUser   $user */
+        $user = auth()->user();
         return view("app.profil", [
-            "user" => auth()->user(),
+            "user" => $user->load(["potagers.jardin", "roles"]),
         ]);
     }
 }

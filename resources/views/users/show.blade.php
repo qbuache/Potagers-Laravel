@@ -41,11 +41,16 @@
             <div class="list-group card-line">
                 @forelse ($user->potagers as $potager)
                     <a
-                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                        class="list-group-item list-group-item-action"
                         href="{{ url("potagers/{$potager->id}") }}"
                     >
-                        <span>{{ $potager->name }}</span>
-                        <small class="text-muted">{{ $potager->jardin->name }}</small>
+                        <div class="row">
+                            <span class="col-lg-4">{{ $potager->name }}</span>
+                            <small class="col-lg-4 text-lg-center text-muted">
+                                <x-sqm>{{ $potager->size }}</x-sqm>
+                            </small>
+                            <small class="col-lg-4 text-lg-end text-muted">{{ $potager->jardin->name }}</small>
+                        </div>
                     </a>
                 @empty
                     <x-alert>Pas de potager</x-alert>

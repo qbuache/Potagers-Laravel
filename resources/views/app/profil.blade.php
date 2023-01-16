@@ -16,7 +16,15 @@
                     <a
                         class="list-group-item list-group-item-action"
                         href="{{ url("potagers/{$potager->id}") }}"
-                    >{{ $potager->name }}</a>
+                    >
+                        <div class="row">
+                            <span class="col-lg-4">{{ $potager->name }}</span>
+                            <small class="col-lg-4 text-lg-center text-muted">
+                                <x-sqm>{{ $potager->size }}</x-sqm>
+                            </small>
+                            <small class="col-lg-4 text-lg-end text-muted">{{ $potager->jardin->name }}</small>
+                        </div>
+                    </a>
                 @empty
                     <x-alert>Pas de potager</x-alert>
                 @endforelse
