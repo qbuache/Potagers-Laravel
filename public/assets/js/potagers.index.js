@@ -14,11 +14,7 @@
         300
     );
     [...jardins, ...sizes, ...states, ...statuses].forEach((el) =>
-        el.addEventListener(
-            "change",
-            window._.debounce(() => search()),
-            300
-        )
+        el.addEventListener("change", search)
     );
 
     function search() {
