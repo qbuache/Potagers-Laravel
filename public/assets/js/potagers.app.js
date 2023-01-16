@@ -16,6 +16,8 @@ Potager = (data) => {
         creating = false,
         editing = false,
         increment = false,
+        showAttribution = true,
+        showState = true,
         url = null,
     } = data;
     let newPotagers = [];
@@ -87,28 +89,28 @@ Potager = (data) => {
             pill.style.left = `${potager.coordinates.x * fixX}px`;
             pill.style.top = `${potager.coordinates.y * fixY}px`;
 
-            const userTooltip = imageWrapper.lastElementChild.querySelector(
-                ".potager__user[data-bs-toggle='tooltip']"
-            );
-            userTooltip.classList.add(
-                potager.jardinier?.id ? "text-vert" : "text-bleu"
-            );
-            userTooltip.dataset.bsTitle = potager.jardinier?.id
-                ? "Attribué"
-                : "Libre";
-            new bootstrap.Tooltip(userTooltip);
+            if (showAttribution) {
+                const userTooltip = imageWrapper.lastElementChild.querySelector(
+                    ".potager__user[data-bs-toggle='tooltip']"
+                );
+                userTooltip.classList.add(
+                    potager.jardinier?.id ? "text-vert" : "text-bleu"
+                );
+                userTooltip.style.display = "block";
+                userTooltip.dataset.bsTitle = potager.jardinier?.id
+                    ? "Attribué"
+                    : "Libre";
+                new bootstrap.Tooltip(userTooltip);
+            }
 
-            if (potager.state && potager.state != "ok") {
+            if (showState && potager.state && potager.state != "ok") {
                 const stateTooltip =
                     imageWrapper.lastElementChild.querySelector(
                         ".potager__state[data-bs-toggle='tooltip']"
                     );
+                stateTooltip.style.display = "block";
                 stateTooltip.dataset.bsTitle = potager.state_text;
                 new bootstrap.Tooltip(stateTooltip);
-            } else {
-                imageWrapper.lastElementChild
-                    .querySelector(".potager__state")
-                    .remove();
             }
         }
     }
