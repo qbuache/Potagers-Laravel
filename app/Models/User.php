@@ -37,6 +37,11 @@ class User extends Authenticatable {
                 $user->assignRole(Permissions::JARDINIER);
             }
         });
+        static::deleting(fn ($user) => Potager::where(["user_id" => $user->id])->update([
+            "user_id" => NULL,
+            "attributed_by_id" => NULL,
+            "attributed_at" => NULL,
+        ]));
     }
 
     public function setEmailAttribute($value) {
