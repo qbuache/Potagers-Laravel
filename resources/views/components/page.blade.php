@@ -1,6 +1,6 @@
 @props(['required' => false, 'noHeader' => false, 'title' => null, 'pageSuppText' => null, 'pageSubText' => null, 'pageTopRight' => null])
 
-<div class="card card-body shadow-sm">
+<div {{ $attributes->class(['card card-body shadow-sm']) }}>
     @if (!$noHeader)
         @php
             $title ??=
