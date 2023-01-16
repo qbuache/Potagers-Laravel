@@ -59,6 +59,9 @@
                                         {{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}
                                     </small>
                                     <small class="text-muted">
+                                        <span @class(['text-warning' => $potager->state != 'ok'])>{{ $potager->state_text }}</span>
+                                    </small>
+                                    <small class="text-muted">
                                         <x-sqm>{{ $potager->size }}</x-sqm>
                                     </small>
                                 </div>

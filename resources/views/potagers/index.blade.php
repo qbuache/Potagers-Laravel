@@ -18,11 +18,17 @@
                     >
                         <div class="row">
                             <div class="col-lg-3">{{ $potager->name }}</div>
-                            <small class="col-lg-3 text-lg-center text-muted">
+                            <small class="col-lg-2 text-lg-center text-muted">
                                 <x-sqm>{{ $potager->size }}</x-sqm>
                             </small>
                             <small
-                                class="col-lg-3 text-lg-center text-muted">{{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}</small>
+                                class="col-lg-2 text-lg-center {{ $potager->state != 'ok' ? 'text-warning' : 'text-muted' }}"
+                            >
+                                {{ $potager->state_text }}
+                            </small>
+                            <small class="col-lg-2 text-lg-center text-muted">
+                                {{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}
+                            </small>
                             <small class="col-lg-3 text-lg-end text-muted">{{ $potager->jardin->name }}</small>
                         </div>
                     </a>
