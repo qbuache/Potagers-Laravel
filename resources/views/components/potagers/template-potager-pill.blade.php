@@ -6,7 +6,7 @@
     >
         <a class="potager__link text-decoration-none text-white"></a>
         <i
-            class="potager__state fa fa-circle-exclamation text-warning rounded bg-white"
+            class="potager__state fa fa-circle-exclamation text-warning rounded-circle bg-white"
             data-bs-toggle="tooltip"
             data-bs-title
             style="position:absolute;top:-25%;right:-25%;z-index:200"
