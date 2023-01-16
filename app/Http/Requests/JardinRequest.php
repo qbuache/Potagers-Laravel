@@ -19,7 +19,6 @@ class JardinRequest extends FormRequest {
 
         return [
             "name" => ["required", "max:50", $unique],
-            "description" => "nullable",
             "coordinates" => "required|json|max:30",
         ];
     }

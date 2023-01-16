@@ -14,7 +14,6 @@ class CreateJardinsTable extends Migration {
         Schema::create('jardins', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
-            $table->text('description')->nullable();
             $table->string('coordinates', 30);
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->nullable()->useCurrentOnUpdate();

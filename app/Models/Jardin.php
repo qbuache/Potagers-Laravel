@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Jardin extends Model {
     use HasFactory;
 
-    protected $fillable = ["name", "description", "coordinates"];
+    protected $fillable = ["name", "coordinates"];
 
     protected $casts = [
         "coordinates" => "array",

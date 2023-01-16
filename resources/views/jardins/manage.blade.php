@@ -13,7 +13,6 @@
                 autofocus
                 required
             />
-            <x-form.textarea name="description" />
             <x-form.hidden name="coordinates" />
             <x-alert class="mt-3 ">Sélectionnez l'emplacement du jardin</x-alert>
             <div class="d-flex justify-content-center mt-3">

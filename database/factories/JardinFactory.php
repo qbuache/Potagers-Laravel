@@ -9,7 +9,6 @@ class JardinFactory extends Factory {
     public function definition() {
         return [
             "name" => $this->faker->safeColorName(),
-            "description" => $this->faker->paragraph()
         ];
     }
 }

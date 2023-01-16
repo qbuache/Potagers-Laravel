@@ -42,7 +42,6 @@ return [
         "password_confirmation" => "Confirmation du mot de passe",
         "ask_password_reset" => "Demander un lien de réinitialisation de mot de passe",
         "name" => "Nom",
-        "description" => "Description",
         "size" => "Surface",
         "size_square" => "Surface ㎡",
         "roles" => "Rôles",

@@ -14,7 +14,6 @@ class CreateJardinsTable extends Migration {
         Schema::create('jardins', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->unique();
-            $table->text('description');
             $table->timestamps();
         });
     }

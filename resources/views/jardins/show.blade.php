@@ -1,12 +1,5 @@
 <x-app-layout>
     <x-page>
-        @if ($jardin->description)
-            <x-slot name="pageSubText">
-                <span class="text-muted">
-                    {{ $jardin->description }}
-                </span>
-            </x-slot>
-        @endif
         <x-btn-group>
             @can(Permissions::DELETE_JARDINS)
                 <x-button
