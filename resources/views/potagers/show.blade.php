@@ -59,7 +59,7 @@
                     <x-alert class="my-3">Ce potager n'est pas attibué</x-alert>
                 @endif
             </div>
-            <div class="col-lg-6 mt-3 mt-lg-0">
+            <div class="col-lg-6 mt-3 mt-lg-0 d-flex justify-content-center">
                 <div
                     class="position-relative"
                     id="imageWrapper"
