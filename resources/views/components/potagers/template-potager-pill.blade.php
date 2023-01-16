@@ -9,13 +9,13 @@
             class="potager__user fa fa-user-circle rounded-circle bg-white"
             data-bs-toggle="tooltip"
             data-bs-title
-            style="position:absolute;top:-25%;left:-25%;z-index:200"
+            style="display:none;position:absolute;top:-25%;left:-25%;z-index:200"
         ></i>
         <i
             class="potager__state fa fa-circle-exclamation text-warning rounded-circle bg-white"
             data-bs-toggle="tooltip"
             data-bs-title
-            style="position:absolute;top:-25%;right:-25%;z-index:200"
+            style="display:none;position:absolute;top:-25%;right:-25%;z-index:200"
         ></i>
     </small>
 </template>
