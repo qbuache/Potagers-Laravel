@@ -7,6 +7,7 @@
         {{ $supp }}
     @endif
     <x-button
+        class="mt-auto"
         type="submit"
         :fa="$fa"
         color="outline-custom"
