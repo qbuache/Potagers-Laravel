@@ -31,7 +31,7 @@
         >
             <a
                 class="text-decoration-none"
-                href="{{ url('dashboard') }}"
+                href="{{ url('') }}"
             >
                 <div class="p-2 bg-white rounded d-flex gap-2 align-items-center">
                     <x-logo

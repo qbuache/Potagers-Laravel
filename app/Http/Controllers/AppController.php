@@ -8,8 +8,8 @@ use App\Models\User;
 
 class AppController extends Controller {
 
-    public function dashboard() {
-        return view("app.dashboard", [
+    public function home() {
+        return view("app.home", [
             "countJardins" => Jardin::count(),
             "countPotagers" => Potager::count(),
             "countJardiniers" => User::count(),
