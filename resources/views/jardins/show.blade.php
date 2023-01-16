@@ -63,6 +63,9 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>{{ $potager->name }}</span>
                                     <small class="text-muted">
+                                        {{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}
+                                    </small>
+                                    <small class="text-muted">
                                         <x-sqm>{{ $potager->size }}</x-sqm>
                                     </small>
                                 </div>

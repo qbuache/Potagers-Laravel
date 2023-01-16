@@ -30,7 +30,7 @@ class JardinController extends Controller {
 
     public function show(Jardin $jardin) {
         return view("jardins.show", [
-            "jardin" => $jardin->load(["potagers"]),
+            "jardin" => $jardin->load(["potagers.jardinier:id"]),
             "sizes" => $jardin->sizes(),
         ]);
     }

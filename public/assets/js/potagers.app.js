@@ -87,6 +87,17 @@ Potager = (data) => {
             pill.style.left = `${potager.coordinates.x * fixX}px`;
             pill.style.top = `${potager.coordinates.y * fixY}px`;
 
+            const userTooltip = imageWrapper.lastElementChild.querySelector(
+                ".potager__user[data-bs-toggle='tooltip']"
+            );
+            userTooltip.classList.add(
+                potager.jardinier?.id ? "text-vert" : "text-bleu"
+            );
+            userTooltip.dataset.bsTitle = potager.jardinier?.id
+                ? "Attribué"
+                : "Libre";
+            new bootstrap.Tooltip(userTooltip);
+
             if (potager.state && potager.state != "ok") {
                 const stateTooltip =
                     imageWrapper.lastElementChild.querySelector(
