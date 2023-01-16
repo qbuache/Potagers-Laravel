@@ -18,7 +18,7 @@ return [
     ],
     "validation" => [],
     "text" => [
-        "dashboard" => "Bienvenue sue le site de gestion des Potagers de la Bérée",
+        "dashboard" => "Bienvenue sur le site de gestion des Potagers de la Bérée",
         "admin" => "La personne peut gérer l'intégralité du site, tout modifier, tout supprimer",
         "responsable_potager" => "La personne peut gérer l'intégralité du site",
         "super_jardinier" => "La personne peut voir l'occupation des potagers et les informations des jardiniers",
