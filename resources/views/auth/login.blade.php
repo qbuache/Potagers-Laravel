@@ -40,14 +40,16 @@
                     fa="right-to-bracket"
                 >
                     <x-slot name="supp">
-                        <x-link href="{{ route('register') }}">
-                            {{ __('messages.label.register') }}
-                        </x-link>
-                        @if (Route::has('password.request'))
-                            <x-link href="{{ route('password.request') }}">
-                                {{ __('messages.label.forgot_password') }}
+                        <div class="btn-group d-flex flex-column flex-lg-row">
+                            <x-link href="{{ route('register') }}">
+                                {{ __('messages.label.register') }}
                             </x-link>
-                        @endif
+                            @if (Route::has('password.request'))
+                                <x-link href="{{ route('password.request') }}">
+                                    {{ __('messages.label.forgot_password') }}
+                                </x-link>
+                            @endif
+                        </div>
                     </x-slot>
                     {{ __('messages.label.login') }}
                 </x-form.submit>
