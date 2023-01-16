@@ -50,7 +50,13 @@
     <script src="{{ asset('assets/js/potagers.app.js') }}"></script>
     <script>
         window.onload = () => Potager(
-            {{ Js::from(['existingPotagers' => $jardin->potagers, 'creating' => true, 'increment' => true]) }}
+            {{ Js::from([
+                'existingPotagers' => $jardin->potagers,
+                'creating' => true,
+                'increment' => true,
+                'showAttribution' => false,
+                'showState' => false,
+            ]) }}
         ).init()
     </script>
 </x-app-layout>

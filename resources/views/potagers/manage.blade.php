@@ -68,6 +68,13 @@
     <x-potagers.template-potager-pill />
     <script src="{{ asset('assets/js/potagers.app.js') }}"></script>
     <script>
-        window.onload = () => Potager({{ Js::from(['existingPotagers' => [$potager], 'editing' => true]) }}).init()
+        window.onload = () => Potager(
+            {{ Js::from([
+                'existingPotagers' => [$potager],
+                'editing' => true,
+                'showAttribution' => false,
+                'showState' => false,
+            ]) }}
+        ).init()
     </script>
 </x-app-layout>
