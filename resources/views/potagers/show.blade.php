@@ -43,7 +43,7 @@
                 </div>
                 @if ($potager->is_attributed)
                     @can(Permissions::READ_USERS)
-                        <h5 class="text-custom card-line">Attribué</h5>
+                        <h5 class="text-custom card-line">Attribution</h5>
                         <div class="row card-line">
                             <div class="col-lg-4">
                                 <x-card-line name="jardinier">

@@ -37,6 +37,7 @@
                         </div>
                     </div>
                     <x-jardins.potagers-sizes :sizes="$jardin->sizes()" />
+                    <h5 class="text-custom card-line">Potagers</h5>
                     <div class="list-group card-line">
                         @foreach ($jardin->potagers as $potager)
                             <a
