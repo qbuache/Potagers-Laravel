@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Redirect;
 class JardinController extends Controller {
 
     public function index() {
-        //Potager::get()->each(fn ($potager) => $potager->delete());
         $jardins = Jardin::orderBy("name")->with([
             "potagers" => fn ($query) => $query->select(["jardin_id", "size"])
         ])->get();
