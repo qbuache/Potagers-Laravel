@@ -64,7 +64,7 @@
                                         {{ $potager->state_text }}
                                     </small>
                                     <small class="col-lg-2 text-lg-center text-muted">
-                                        {{ !empty($potager->jardinier) ? __('messages.label.status_attributed') : __('messages.label.status_open') }}
+                                        {{ $potager->is_attributed ? __('messages.label.status_attributed') : __('messages.label.status_open') }}
                                     </small>
                                     <small class="col-lg-3 text-lg-end text-muted">{{ $potager->jardin->name }}</small>
                                 </div>

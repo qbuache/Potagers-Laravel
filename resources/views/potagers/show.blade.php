@@ -39,7 +39,7 @@
                 <x-card-line name="state">
                     <span @class(['text-warning' => $potager->state != 'ok'])>{{ $potager->state_text }}</span>
                 </x-card-line>
-                @if (!empty($potager->jardinier))
+                @if ($potager->is_attributed)
                     @can(Permissions::READ_USERS)
                         <h5 class="text-custom card-line">Attribué</h5>
                         <div class="row card-line">
