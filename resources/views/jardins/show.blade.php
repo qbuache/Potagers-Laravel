@@ -51,7 +51,7 @@
                                         <span @class(['text-warning' => $potager->state != 'ok'])>{{ $potager->state_text }}</span>
                                     </small>
                                     <small class="col-lg-3 text-muted text-lg-end">
-                                        {{ !empty($potager->jardinier) ? 'Attribué' : 'Libre' }}
+                                        {{ $potager->is_attributed ? 'Attribué' : 'Libre' }}
                                     </small>
                                 </div>
                             </a>
