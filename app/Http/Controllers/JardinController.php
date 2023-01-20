@@ -12,24 +12,25 @@ class JardinController extends Controller {
 
     public function index() {
         $jardins = Jardin::orderBy("name")->with([
-            "potagers" => fn ($query) => $query->select(["jardin_id", "size"])
+            "potagers" => fn ($query) => $query->select(["jardin_id", "user_id", "size"])
         ])->get();
 
         $countPotagers = $jardins->map(fn ($jardin) => $jardin->potagers->count())->sum();
         $totalSize = $jardins->map(fn ($jardin) => $jardin->potagers->sum("size"))->sum();
         $potagersSizes = $jardins->reduce(fn ($acc, $jardin) => $acc->push(...$jardin->sizes()), collect())->groupBy("size")->map(fn ($size, $index) => ["size" => $index, "count" => $size->sum("count")]);
+        $potagersOccupation = $jardins->map(fn ($jardin) => $jardin->occupation())->average();
         return view("jardins.index", [
             "jardins" => $jardins,
             "countPotagers" => $countPotagers,
             "totalSize" => $totalSize,
             "potagersSizes" => $potagersSizes,
+            "potagersOccupation" => $potagersOccupation,
         ]);
     }
 
     public function show(Jardin $jardin) {
         return view("jardins.show", [
             "jardin" => $jardin->load(["potagers.jardinier:id"]),
-            "potagersSizes" => $jardin->sizes(),
         ]);
     }
 
