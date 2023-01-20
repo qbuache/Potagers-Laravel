@@ -21,7 +21,7 @@ class JardinController extends Controller {
             "totalSize" => $jardins->map(fn ($jardin) => $jardin->potagers->sum("size"))->sum(),
             "potagersSizes" => $jardins->reduce(fn ($acc, $jardin) => $acc->push(...$jardin->sizes()), collect())
                 ->groupBy("size")->map(fn ($size, $index) => ["size" => $index, "count" => $size->sum("count")]),
-            "potagersOccupation" => $jardins->map(fn ($jardin) => $jardin->occupation())->average(),
+            "potagersOccupation" => floor($jardins->map(fn ($jardin) => $jardin->occupation())->avg()),
         ]);
     }
 
