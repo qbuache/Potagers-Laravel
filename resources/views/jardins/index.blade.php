@@ -33,7 +33,7 @@
                                 href="{{ url("jardins/{$jardin->id}") }}"
                             >
                                 <span>{{ $jardin->name }}</span>
-                                <small class="text-muted">{{ $jardin->potagers->count() }} potager</small>
+                                <small class="text-muted">{{ $jardin->potagers->count() }} potagers</small>
                             </a>
                         @endforeach
                     </div>
