@@ -29,4 +29,8 @@ class Jardin extends Model {
     public function sizes() {
         return $this->potagers->groupBy("size")->sortKeys()->map(fn ($size, $index) => ["size" => $index, "count" => $size->count()]);
     }
+
+    public function occupation() {
+        return floor($this->potagers->filter(fn ($potager) => $potager->is_attributed)->count() / $this->potagers->count() * 100);
+    }
 }

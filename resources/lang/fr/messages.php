@@ -62,5 +62,6 @@ return [
         "state_ok" => "OK",
         "state_damaged" => "Endommagé",
         "state_derelict" => "À l'abandon",
+        "occupation" => "Occupation",
     ]
 ];

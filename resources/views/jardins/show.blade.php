@@ -34,6 +34,7 @@
                         </div>
                     </div>
                     <x-jardins.potagers-sizes :sizes="$jardin->sizes()" />
+                    <x-card-line name="occupation">{{ $jardin->occupation() }}%</x-card-line>
                     <div class="list-group card-line">
                         @foreach ($jardin->potagers as $potager)
                             <a
