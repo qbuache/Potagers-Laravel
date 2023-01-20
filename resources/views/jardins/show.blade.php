@@ -24,17 +24,19 @@
             <div class="col-lg-6">
                 @if ($jardin->potagers->isNotEmpty())
                     <div class="row card-line">
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <x-card-line name="count_potagers">{{ $jardin->potagers->count() }} potagers</x-card-line>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <x-card-line name="total_size">
                                 <x-sqm>{{ $jardin->potagers->sum('size') }}</x-sqm>
                             </x-card-line>
                         </div>
+                        <div class="col-lg-4">
+                            <x-card-line name="occupation">{{ $jardin->occupation() }}%</x-card-line>
+                        </div>
                     </div>
                     <x-jardins.potagers-sizes :sizes="$jardin->sizes()" />
-                    <x-card-line name="occupation">{{ $jardin->occupation() }}%</x-card-line>
                     <div class="list-group card-line">
                         @foreach ($jardin->potagers as $potager)
                             <a

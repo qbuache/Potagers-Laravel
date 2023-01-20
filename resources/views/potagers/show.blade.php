@@ -25,31 +25,33 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="row card-line">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <x-card-line name="size">
                             <x-sqm>{{ $potager->size }}</x-sqm>
                         </x-card-line>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
+                        <x-card-line name="state">
+                            <span @class(['text-warning' => $potager->state != 'ok'])>{{ $potager->state_text }}</span>
+                        </x-card-line>
+                    </div>
+                    <div class="col-lg-4">
                         <x-card-line name="jardin">
                             <a href="{{ url("jardins/{$potager->jardin->id}") }}">{{ $potager->jardin->name }}</a>
                         </x-card-line>
                     </div>
                 </div>
-                <x-card-line name="state">
-                    <span @class(['text-warning' => $potager->state != 'ok'])>{{ $potager->state_text }}</span>
-                </x-card-line>
                 @if ($potager->is_attributed)
                     @can(Permissions::READ_USERS)
                         <h5 class="text-custom card-line">Attribué</h5>
                         <div class="row card-line">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <x-card-line name="jardinier">
                                     <a
                                         href="{{ url("users/{$potager->jardinier->id}") }}">{{ $potager->jardinier->name }}</a>
                                 </x-card-line>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <x-card-line name="attributed_by">{{ $potager->attributed_by->name }} le
                                     {{ $potager->attributed_at->format('d.m.Y') }}</x-card-line>
                             </div>
