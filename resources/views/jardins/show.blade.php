@@ -33,19 +33,7 @@
                             </x-card-line>
                         </div>
                     </div>
-                    <x-card-line name="spread">
-                        <table class="table table-sm table-round table-boxed table-bordered">
-                            <tbody>
-                                <tr>
-                                    @foreach ($sizes as $size => $count)
-                                        <td>
-                                            <x-sqm>{{ $count }}x{{ $size }}</x-sqm>
-                                        </td>
-                                    @endforeach
-                                </tr>
-                            </tbody>
-                        </table>
-                    </x-card-line>
+                    <x-jardins.potagers-sizes :sizes="$potagersSizes" />
                     <div class="list-group card-line">
                         @foreach ($jardin->potagers as $potager)
                             <a
