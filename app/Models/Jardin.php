@@ -21,6 +21,9 @@ class Jardin extends Model {
     protected static function booted() {
         static::deleting(function ($jardin) {
             Potager::where(["jardin_id" => $jardin->id])->delete();
+            if (Storage::exists($jardin->getImagePath())) {
+                Storage::delete($jardin->getImagePath());
+            }
         });
     }
 
