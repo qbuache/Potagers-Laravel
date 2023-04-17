@@ -22,7 +22,7 @@ class JardinRequest extends FormRequest {
         return [
             "name" => ["required", "max:50", $unique],
             "coordinates" => "required|json|max:30",
-            "image" => "{$requireImage}|mimes:jpg,jpeg",
+            "file" => "{$requireImage}|mimes:jpg,jpeg",
         ];
     }
 }

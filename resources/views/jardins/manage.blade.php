@@ -15,8 +15,9 @@
                 required
             />
             <x-form.input
-                name="image"
+                name="file"
                 type="file"
+                label="image"
                 help="Uploader une image au format JPEG"
                 :required="empty($jardin)"
             />

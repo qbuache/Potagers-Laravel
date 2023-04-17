@@ -43,8 +43,8 @@ class JardinController extends Controller {
         $posted["coordinates"] = json_decode($posted["coordinates"]);
         $jardin = Jardin::create($posted);
 
-        if ($request->hasfile("image")) {
-            Storage::putFileAs($jardin->getImagePath("dir"), $request->file("image"), $jardin->getImagePath("file"));
+        if ($request->hasfile("file")) {
+            Storage::putFileAs($jardin->getImagePath("dir"), $request->file("file"), $jardin->getImagePath("file"));
         }
         return Redirect::route("jardins.show", $jardin)->with("success", "created");
     }
