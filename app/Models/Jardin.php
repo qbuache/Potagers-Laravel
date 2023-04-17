@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Jardin extends Model {
@@ -34,6 +35,19 @@ class Jardin extends Model {
 
     public function sizes() {
         return $this->potagers->groupBy("size")->sortKeys()->map(fn ($size, $index) => ["size" => $index, "count" => $size->count()]);
+    }
+
+    public function getImagePath($format = "all") {
+        $dir = "public/potagers";
+        $file = "{$this->slug}.jpeg";
+        switch ($format) {
+            case "all":
+                return "{$dir}/{$file}";
+            case "dir":
+                return $dir;
+            case "file":
+                return $file;
+        }
     }
 
     public function occupation() {
