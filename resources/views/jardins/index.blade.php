@@ -30,8 +30,8 @@
                         @foreach ($jardins as $jardin)
                             <a
                                 class="list-group-item list-group-item-action d-flex justify-content-between align-items-center jardin__hover"
-                                data-name="{{ Str::slug($jardin->name, '_') }}"
-                                href="{{ url("jardins/{$jardin->id}") }}"
+                                data-name="{{ $jardin->slug }}"
+                                href="{{ url("jardins/{$jardin->slug}") }}"
                             >
                                 <span>{{ $jardin->name }}</span>
                                 <small class="text-muted">{{ $jardin->potagers->count() }} potagers</small>

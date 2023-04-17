@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-lg-4">
                         <x-card-line name="jardin">
-                            <a href="{{ url("jardins/{$potager->jardin->id}") }}">{{ $potager->jardin->name }}</a>
+                            <a href="{{ url("jardins/{$potager->jardin->slug}") }}">{{ $potager->jardin->name }}</a>
                         </x-card-line>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                     <img
                         class="rounded"
                         id="image"
-                        src="{{ asset("assets/img/pota{$potager->jardin->id}.jpeg") }}"
+                        src="{{ asset("storage/potagers/{$potager->jardin->slug}.jpeg") }}"
                         alt="Jardin {{ $potager->jardin->name }}"
                         style="max-width:100%"
                     >

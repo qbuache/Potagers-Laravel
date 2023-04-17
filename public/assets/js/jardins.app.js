@@ -22,14 +22,13 @@ Jardin = (data) => {
 
     function addJardin(jardin) {
         if (canListJardin) {
-            const slug = window._.snakeCase(jardin.name);
             const clone = templateLine.content.cloneNode(true);
-            clone.querySelector(".jardin__line").dataset.name = slug;
+            clone.querySelector(".jardin__line").dataset.name = jardin.slug;
             clone.querySelector(".jardin__name").value = jardin.name;
             clone.querySelector(".jardin__coordinates").value = JSON.stringify(
                 jardin.coordinates
             );
-            clone.querySelector(".jardin__delete").dataset.name = slug;
+            clone.querySelector(".jardin__delete").dataset.name = jardin.slug;
             jardinsList.appendChild(clone);
             jardinsList.lastElementChild
                 .querySelector(".jardin__delete")
@@ -71,14 +70,13 @@ Jardin = (data) => {
 
     function drawJardin(jardin) {
         if (canDrawJardin) {
-            const slug = window._.snakeCase(jardin.name);
-            deleteJardinPill(slug);
+            deleteJardinPill(jardin.slug);
 
             const fixX = image.width / image.naturalWidth;
             const fixY = image.height / image.naturalHeight;
             const clone = templatePill.content.cloneNode(true);
 
-            clone.querySelector(".jardin__pill").dataset.name = slug;
+            clone.querySelector(".jardin__pill").dataset.name = jardin.slug;
             clone
                 .querySelector(".jardin__pill")
                 .classList.add(jardin.new ? "bg-jaune" : "bg-custom");
@@ -86,7 +84,7 @@ Jardin = (data) => {
             if (url) {
                 clone.querySelector(
                     ".jardin__link"
-                ).href = `${url}/${jardin.id}`;
+                ).href = `${url}/${jardin.slug}`;
             }
             imageWrapper.appendChild(clone);
             const pill = imageWrapper.lastElementChild;

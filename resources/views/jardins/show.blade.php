@@ -11,11 +11,11 @@
             @endcan
             @can(Permissions::EDIT_JARDINS)
                 <x-link
-                    href="jardins/{{ $jardin->id }}/edit"
+                    href="jardins/{{ $jardin->slug }}/edit"
                     fa="pencil-alt"
                 >Modifier</x-link>
                 <x-link
-                    href="jardins/{{ $jardin->id }}/define-potagers"
+                    href="jardins/{{ $jardin->slug }}/define-potagers"
                     fa="bullseye"
                 >Définir les potagers</x-link>
             @endcan
@@ -72,7 +72,7 @@
                     <img
                         class="rounded"
                         id="image"
-                        src="{{ asset("assets/img/pota{$jardin->id}.jpeg") }}"
+                        src="{{ asset("storage/potagers/{$jardin->slug}.jpeg") }}"
                         alt="Jardin {{ $jardin->name }}"
                         style="max-width:100%"
                     >
@@ -81,7 +81,7 @@
         </div>
     </x-page>
     <x-modal-confirm
-        action='{{ "jardins/$jardin->id" }}'
+        action='{{ "jardins/$jardin->slug" }}'
         method="DELETE"
     >
         Voulez-vous vraiment supprimer ce jardin ?

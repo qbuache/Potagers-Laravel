@@ -1,6 +1,6 @@
 @php
     $element = $jardin ?? null;
-    $route = empty($element) ? route('jardins.store') : route('jardins.update', $element->id);
+    $route = empty($element) ? route('jardins.store') : route('jardins.update', $element->slug);
 @endphp
 <x-app-layout>
     <x-page>

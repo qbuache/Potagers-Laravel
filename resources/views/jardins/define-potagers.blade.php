@@ -2,7 +2,7 @@
     <x-page>
         <x-alert class="mb-3 ">Sélectionnez l'emplacement des potagers</x-alert>
         <form
-            action="{{ url("jardins/{$jardin->id}/define-potagers") }}"
+            action="{{ url("jardins/{$jardin->slug}/define-potagers") }}"
             method="POST"
         >
             @csrf
@@ -15,7 +15,7 @@
                         <img
                             class="rounded "
                             id="image"
-                            src="{{ asset("assets/img/pota{$jardin->id}.jpeg") }}"
+                            src="{{ asset("assets/img/pota{$jardin->slug}.jpeg") }}"
                             alt="Jardin {{ $jardin->name }}"
                             style="cursor: crosshair"
                         >
