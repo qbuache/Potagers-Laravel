@@ -31,6 +31,10 @@ class Jardin extends Model {
     }
 
     public function occupation() {
-        return floor($this->potagers->filter(fn ($potager) => $potager->is_attributed)->count() / $this->potagers->count() * 100);
+        $countPotagers = $this->potagers->count();
+        return $countPotagers > 0
+            ?
+            floor($this->potagers->filter(fn ($potager) => $potager->is_attributed)->count() / $this->potagers->count() * 100)
+            : 0;
     }
 }
