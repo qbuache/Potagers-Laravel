@@ -1,13 +1,16 @@
-@props(['element', 'route'])
+@props(['element', 'multipart' => false, 'route'])
 
 @php
     $method = empty($element) ? 'POST' : 'PATCH';
 @endphp
 
-<form {{ $attributes->merge([
-    'action' => $route,
-    'method' => 'POST',
-]) }}>
+<form
+    {{ $attributes->merge([
+        'action' => $route,
+        'enctype' => $multipart ? 'multipart/form-data' : null,
+        'method' => 'POST',
+    ]) }}
+>
     @csrf
     @if ($method != 'POST')
         @method($method)
