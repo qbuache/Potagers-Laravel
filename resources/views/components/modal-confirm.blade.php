@@ -39,7 +39,7 @@
                         @csrf
                         @method($method)
                         <x-button
-                            class="btn-outline-custom w-100"
+                            class="yes btn-outline-custom w-100"
                             type="submit"
                             fa="check"
                         >{{ $validate }}
