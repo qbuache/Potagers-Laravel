@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Jardin extends Model {
     use HasFactory;
 
-    protected $fillable = ["name", "coordinates"];
+    protected $fillable = ["name", "slug", "coordinates"];
 
     protected $casts = [
         "coordinates" => "array",
@@ -24,6 +25,11 @@ class Jardin extends Model {
 
     public function potagers() {
         return $this->hasMany(Potager::class);
+    }
+
+    public function setNameAttribute($value) {
+        $this->attributes["name"] = $value;
+        $this->attributes["slug"] = Str::slug($value);
     }
 
     public function sizes() {
