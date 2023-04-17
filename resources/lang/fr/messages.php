@@ -63,5 +63,6 @@ return [
         "state_damaged" => "Endommagé",
         "state_derelict" => "À l'abandon",
         "occupation" => "Occupation",
+        "image" => "Image",
     ]
 ];
