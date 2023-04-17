@@ -21,7 +21,7 @@
                         >
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 mt-3 mt-lg-0">
                     <h5 class="text-custom">Nouveaux potagers</h5>
                     <div class="mb-3">
                         <label
