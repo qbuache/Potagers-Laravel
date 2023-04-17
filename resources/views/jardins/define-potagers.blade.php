@@ -45,7 +45,7 @@
         </form>
     </x-page>
     <x-potagers.template-potager-pill />
-    <x-potagers.template-potager-line />
+    <x-potagers.template-potager-line :states="$states" />
     <script src="{{ asset('assets/js/potagers.app.js') }}"></script>
     <script>
         window.onload = () => Potager(

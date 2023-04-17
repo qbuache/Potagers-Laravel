@@ -76,6 +76,7 @@ class JardinController extends Controller {
         return view("jardins.define-potagers", [
             "jardin" => $jardin,
             "nextPotager" => isset($nextPotager) ? $nextPotager + 1 : $jardin->id * 100,
+            "states" => Potager::states()->map(fn ($state) => [$state, __("messages.label.state_{$state}")]),
         ]);
     }
 
@@ -86,6 +87,7 @@ class JardinController extends Controller {
                 "jardin_id" => $jardin->id,
                 "name" => $value,
                 "size" => $posted["sizes"][$index],
+                "state" => $posted["states"][$index],
                 "coordinates" => json_decode($posted["coordinates"][$index]),
             ]);
         }
