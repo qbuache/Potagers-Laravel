@@ -15,7 +15,7 @@
                         <img
                             class="rounded "
                             id="image"
-                            src="{{ asset("assets/img/pota{$jardin->slug}.jpeg") }}"
+                            src="{{ asset("storage/potagers/{$jardin->slug}.jpeg") }}"
                             alt="Jardin {{ $jardin->name }}"
                             style="cursor: crosshair"
                         >
