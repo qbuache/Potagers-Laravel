@@ -21,8 +21,12 @@
                 help="Uploader une image au format JPEG"
                 :required="empty($jardin)"
             />
-            <x-form.hidden name="coordinates" />
-            <x-alert class="mt-3 ">Sélectionnez l'emplacement du jardin</x-alert>
+            <x-form.input
+                name="coordinates"
+                help="Sélectionnez l'emplacement du jardin en cliquant sur l'image ci-dessous"
+                required
+                readonly
+            />
             <div class="d-flex justify-content-center mt-3">
                 <div
                     class="position-relative overflow-auto h-100"

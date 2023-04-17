@@ -36,6 +36,7 @@ return [
         "ask_password_reset" => "Demander un lien de réinitialisation de mot de passe",
         "attributed_at" => "Attribué le",
         "attributed_by" => "Attribué par",
+        "coordinates" => "Coordonnées",
         "count_potagers" => "Nombre de potagers",
         "email" => "Email",
         "forgot_password" => "J'ai oublié mon mot de passe",
