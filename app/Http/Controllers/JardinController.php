@@ -7,6 +7,7 @@ use App\Models\Jardin;
 use App\Models\Potager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class JardinController extends Controller {
 
@@ -41,6 +42,10 @@ class JardinController extends Controller {
         $posted = $request->validated();
         $posted["coordinates"] = json_decode($posted["coordinates"]);
         $jardin = Jardin::create($posted);
+
+        if ($request->hasfile("image")) {
+            Storage::putFileAs($jardin->getImagePath("dir"), $request->file("image"), $jardin->getImagePath("file"));
+        }
         return Redirect::route("jardins.show", $jardin)->with("success", "created");
     }
 

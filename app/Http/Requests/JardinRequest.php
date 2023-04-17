@@ -13,13 +13,16 @@ class JardinRequest extends FormRequest {
 
     public function rules() {
         $unique = Rule::unique("jardins");
+        $requireImage = "required";
         if (!empty($this->jardin)) {
             $unique->ignore($this->jardin);
+            $requireImage = "nullable";
         }
 
         return [
             "name" => ["required", "max:50", $unique],
             "coordinates" => "required|json|max:30",
+            "image" => "{$requireImage}|mimes:jpg,jpeg",
         ];
     }
 }

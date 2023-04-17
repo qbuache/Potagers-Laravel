@@ -7,11 +7,18 @@
         <x-form.form
             :element="$element"
             :route="$route"
+            :multipart="true"
         >
             <x-form.input
                 name="name"
                 autofocus
                 required
+            />
+            <x-form.input
+                name="image"
+                type="file"
+                help="Uploader une image au format JPEG"
+                :required="empty($jardin)"
             />
             <x-form.hidden name="coordinates" />
             <x-alert class="mt-3 ">Sélectionnez l'emplacement du jardin</x-alert>
