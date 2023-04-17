@@ -21,6 +21,13 @@
                 help="Uploader une image au format JPEG"
                 :required="empty($jardin)"
             />
+            @if (!empty($jardin))
+                <x-alert
+                    class="my-2"
+                    type="warning"
+                >Attention modifier l'image d'un jardin risque de décaler l'emplacement de tous
+                    ses potagers</x-alert>
+            @endif
             <x-form.input
                 name="coordinates"
                 help="Sélectionnez l'emplacement du jardin en cliquant sur l'image ci-dessous"
