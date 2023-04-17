@@ -7,20 +7,7 @@
         >
             @csrf
             <div class="row">
-                <div class="col-lg-9">
-                    <div
-                        class="sticky overflow-auto"
-                        id="imageWrapper"
-                    >
-                        <img
-                            class="rounded "
-                            id="image"
-                            src="{{ asset("storage/potagers/{$jardin->slug}.jpeg") }}"
-                            alt="Jardin {{ $jardin->name }}"
-                        >
-                    </div>
-                </div>
-                <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="col-lg-4">
                     <h5 class="text-custom">Nouveaux potagers</h5>
                     <div class="mb-3">
                         <label
@@ -38,6 +25,19 @@
                         class="list-group"
                         id="potagersList"
                     >
+                    </div>
+                </div>
+                <div class="col-lg-8 mt-3 mt-lg-0">
+                    <div
+                        class="sticky overflow-auto"
+                        id="imageWrapper"
+                    >
+                        <img
+                            class="rounded "
+                            id="image"
+                            src="{{ asset("storage/potagers/{$jardin->slug}.jpeg") }}"
+                            alt="Jardin {{ $jardin->name }}"
+                        >
                     </div>
                 </div>
             </div>
