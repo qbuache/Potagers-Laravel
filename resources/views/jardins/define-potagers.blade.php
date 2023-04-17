@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div
-                        class="sticky overflow-auto h-100"
+                        class="sticky overflow-auto"
                         id="imageWrapper"
                     >
                         <img
