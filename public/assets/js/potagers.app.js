@@ -119,6 +119,12 @@ Potager = (data) => {
         potagers.forEach((potager) => drawPotager(potager));
     }
 
+    function setCrossHairCursor() {
+        if (creating || editing) {
+            image.style.cursor = "crosshair";
+        }
+    }
+
     function addEventListeners() {
         document.querySelectorAll(".potager__hover").forEach((element) => {
             element.addEventListener("mouseleave", () => {
@@ -182,6 +188,7 @@ Potager = (data) => {
 
     function init() {
         redrawPotagers(existingPotagers);
+        setCrossHairCursor();
         addEventListeners();
     }
 

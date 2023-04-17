@@ -97,6 +97,12 @@ Jardin = (data) => {
         jardins.forEach((jardin) => drawJardin(jardin));
     }
 
+    function setCrossHairCursor() {
+        if (creating || editing) {
+            image.style.cursor = "crosshair";
+        }
+    }
+
     function addEventListeners() {
         document.querySelectorAll(".jardin__hover").forEach((element) => {
             element.addEventListener("mouseleave", () => {
@@ -160,6 +166,7 @@ Jardin = (data) => {
 
     function init() {
         redrawJardins(existingJardins);
+        setCrossHairCursor();
         addEventListeners();
     }
 

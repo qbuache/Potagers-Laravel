@@ -44,7 +44,6 @@
                         id="image"
                         src="{{ asset('assets/img/quartier.jpeg') }}"
                         alt="Quartier"
-                        style="cursor: crosshair"
                     />
                 </div>
             </div>

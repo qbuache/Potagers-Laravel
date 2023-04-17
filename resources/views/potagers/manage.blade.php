@@ -56,7 +56,6 @@
                                 id="image"
                                 src="{{ asset("storage/potagers/{$potager->jardin->slug}.jpeg") }}"
                                 alt="Jardin {{ $potager->jardin->name }}"
-                                style="cursor: crosshair"
                             />
                         </div>
                     </div>
